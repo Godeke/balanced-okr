@@ -32,4 +32,4 @@ Every recurring metric should have an owner, a rationale, and a date for revalid
 
 **Practice exercise:** Run a “gaming workshop.” Ask participants to invent three ways to hit a proposed key result without delivering value. Document the most plausible strategy and redesign the metric or guardrail accordingly.
 
-[Previous](02-the-four-part-balanced-okr.md) · [Next](04-causality-and-evidence.md)
+[Previous](02-the-three-part-balanced-okr.md) · [Next](04-causality-and-evidence.md)

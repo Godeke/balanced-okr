@@ -89,7 +89,7 @@ A robust goal-setting approach needs more than quarterly numerical results. It n
 
 Balanced OKRs is an invitation to ask not only **“Did the number move?”** but also **“Did the business become healthier, and what did we learn?”**
 
-The next chapter will define the four components in detail and explore how to choose a small set of measurements without creating an administrative burden.
+The next chapter will define the three components in detail and explore how to choose a small set of measurements without creating an administrative burden.
 
 ---
 
