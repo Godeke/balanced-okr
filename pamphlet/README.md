@@ -7,16 +7,17 @@
 
 A team can hit every target and still leave the business worse off: sales can increase while renewals collapse; delivery can accelerate while production becomes unreliable; customer retention can improve while unprofitable accounts accumulate. Balanced OKRs makes these tradeoffs visible rather than treating them as someone else's problem.
 
-### The four parts
+### The three parts
 
 | Element | Question | Purpose |
 | --- | --- | --- |
-| **Objective** | What meaningful outcome are we trying to create? | States the desired change. |
-| **Key Results** | What evidence will show progress? | Measures outcomes, not merely effort. |
-| **Guardrails** | What must not deteriorate beyond an acceptable limit? | Defines boundaries that success may not override. |
-| **Diagnostic Metrics** | What will help us understand *why* results changed? | Supports interpretation and learning without turning every measure into a target. |
+| **Objective** | What meaningful outcome are we trying to create? | Describes the desired change, not an activity or metric. |
+| **Key Results** | What measurable results, from what baseline to what target and by when, demonstrate success? | Define the evidence of achievement. |
+| **Guardrails** | What adverse outcomes must remain within defined boundaries? | Prevent key-result success from concealing unacceptable harm. |
 
-A guardrail is **not** a bonus point or an additional key result to average into a score. If a material guardrail fails, the OKR requires review even when all key results are achieved. Guardrail thresholds should be explicit when practicable, with the baseline, time window, and responsible owner documented.
+**Guardrails are the defining addition.** They are non-compensating: exceptional key-result performance cannot cancel out material guardrail violations. Each guardrail needs a defined metric or observable condition, a threshold or review trigger, a time window, and an owner.
+
+**Diagnostics are not a fourth component.** Where needed, supporting analysis—such as cancellations by cohort, product, or channel—helps establish whether a guardrail is being respected and whether aggregate data hides a breach. It does not create another target or an independent score.
 
 ### Example: growing insurance business responsibly
 
@@ -25,7 +26,7 @@ A guardrail is **not** a bonus point or an additional key result to average into
 - **KR1:** Improve qualified quote-to-bind conversion from an established baseline to a defined target.
 - **KR2:** Increase new-business contribution margin, measured consistently by product segment.
 - **Guardrails:** No unacceptable increase in early cancellations, coverage corrections, complaints, or deterioration in renewal performance for comparable acquisition cohorts.
-- **Diagnostics:** Lead source, account size, outreach method, time to quote, and conversion by segment.
+- **Guardrail evidence (as needed): Lead source, account size, outreach method, time to quote, and conversion by segment.
 
 **Why balance matters:** Incentives to maximize immediate volume can encourage pressure-selling or poor-fit policies. Renewal and profitability outcomes may emerge long after the initial sale. Track acquisition cohorts beyond the quarter and use validated leading indicators in the meantime.
 
@@ -36,7 +37,7 @@ A guardrail is **not** a bonus point or an additional key result to average into
 - **KR1:** Reduce median lead time from approved change to production.
 - **KR2:** Improve the proportion of planned changes delivered within the agreed window.
 - **Guardrails:** Change failure rate and recovery time must remain within agreed tolerances; security and compliance controls must not be bypassed.
-- **Diagnostics:** Deployment frequency, work-item size, rollback causes, incident types, and approval delays.
+- **Guardrail evidence (as needed): Deployment frequency, work-item size, rollback causes, incident types, and approval delays.
 
 **Why balance matters:** Deployment counts are activity measures; faster deployment is valuable only when the software is useful and reliable. Guard against changing the definition of a deployment merely to improve the number.
 
