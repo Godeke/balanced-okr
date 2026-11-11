@@ -52,7 +52,7 @@ jobs:
           s=p.read_text().replace("../book/README.md", "book/index.md").replace("../README.md", "index.md")
           p.write_text(s)
           for p in Path("site-content/book").glob("*.md"):
-              s=p.read_text().replace("../pamphlet/README.md", "../pamphlet.md").replace("../README.md", "../index.md")
+              s=p.read_text().replace("../pamphlet/README.md", "../pamphlet.md").replace("../README.md", "../index.md").replace("(README.md)", "(index.md)")
               p.write_text(s)
           PY
       - name: Build site
