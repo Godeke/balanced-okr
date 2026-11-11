@@ -6,7 +6,7 @@
 
 An OKR system is a mechanism that changes behavior, not merely a dashboard that reports it. People respond to whatever the organization repeatedly measures and celebrates. If a key result captures only one side of a tradeoff, the organization can achieve it and still lose.
 
-**Balanced OKRs** adds explicit **guardrails** and **diagnostic metrics** to objectives and key results, then makes measurement validity, unintended consequences, cross-team dependencies, and delayed outcomes part of normal management review.
+**Balanced OKRs** adds explicit **guardrails** and supporting diagnostic analysis to objectives and key results, then makes measurement validity, unintended consequences, cross-team dependencies, and delayed outcomes part of normal management review.
 
 This is an adaptation of OKR practice, not an established certification or a substitute for safety, compliance, financial, or personnel management.
 
@@ -17,7 +17,7 @@ Business leaders, team managers, individual contributors, and technical organiza
 ## Chapters
 
 1. [The problem with one-sided success](01-one-sided-success.md)
-2. [The four-part Balanced OKR](02-the-four-part-balanced-okr.md)
+2. [The three-part Balanced OKR](02-the-three-part-balanced-okr.md)
 3. [Mechanisms and incentives](03-mechanisms-and-incentives.md)
 4. [Causality and evidence](04-causality-and-evidence.md)
 5. [The organization as a system](05-organization-as-system.md)
