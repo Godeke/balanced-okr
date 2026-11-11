@@ -1,6 +1,6 @@
 # Bibliography and Further Reading
 
-This bibliography distinguishes **foundational works** from **practitioner guidance**. In-text references use identifiers such as [R5]. The Balanced OKR four-part design is the proposal of this manuscript; it is not attributed to any single source.
+This bibliography distinguishes **foundational works** from **practitioner guidance**. In-text references use identifiers such as [R5]. This manuscript proposes the three-part Balanced OKR design as a synthesis of the sources below.
 
 ## Foundational works
 
