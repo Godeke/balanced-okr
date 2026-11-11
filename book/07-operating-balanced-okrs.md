@@ -6,7 +6,7 @@ The framework should improve decisions, not create a second management bureaucra
 
 Start with the business outcome and the person accountable for it. Establish a baseline before choosing an ambitious target. Define the measurement population, data source, time window, and owner. Then identify one or two material adverse effects, and decide whether they require hard boundaries, review triggers, or contextual monitoring.
 
-Choose diagnostics only if someone will use them to investigate variation or make a decision. If the dashboard has fifty numbers and no decision attached to them, it is not balanced; it is cluttered.
+Use diagnostic breakdowns when necessary to verify guardrail compliance or investigate a potential breach. If the dashboard has fifty numbers and no decision attached to them, it is not balanced; it is cluttered.
 
 ## Approval
 
