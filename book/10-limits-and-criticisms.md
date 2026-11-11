@@ -28,7 +28,7 @@ Routine operations, statutory obligations, incident response, professional ethic
 
 ## Evidence is still emerging for this proposal
 
-Balanced OKRs, as defined in this book, is a proposed synthesis of ideas from goal-setting, measurement theory, experimentation, software delivery, and systems thinking. The referenced sources support important component ideas, but **they do not establish that this exact four-part framework has been experimentally validated**. Organizations adopting it should treat their rollout as an experiment and compare the decision quality and administrative burden against simpler alternatives.
+Balanced OKRs, as defined in this book, is a proposed synthesis of ideas from goal-setting, measurement theory, experimentation, software delivery, and systems thinking. The referenced sources support important component ideas, but **they do not establish that this exact three-part framework has been experimentally validated**. Organizations adopting it should treat their rollout as an experiment and compare the decision quality and administrative burden against simpler alternatives.
 
 ## Final test
 
