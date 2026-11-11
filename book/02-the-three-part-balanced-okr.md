@@ -1,62 +1,40 @@
 # Chapter 2 — Objectives, Key Results, and Guardrails
 
-Balanced OKRs has **three primary components**: an Objective, measurable Key Results, and non-compensating Guardrails. Diagnostics are supporting methods for assessing guardrail compliance, not a fourth pillar or separate scorecard.
+At the start of Q1 2027, the sales team and the commercial director want to agree on how they will judge an acquisition campaign. Here is how they write it down. All figures and thresholds in this case are hypothetical.
 
-## Objective: a desired state
+## Objective
 
-An objective states *what meaningful change we want*. It is qualitative and directional, not a task list and not a metric disguised as a slogan.
+**Grow new insurance business that customers choose to renew.**
 
-**Objective:** Grow sustainable new insurance business.
+The Objective states what is worth accomplishing. Writing down “customers choose to renew” gives the director a reason to return to the campaign after the quarter closes. A sales manager can propose calling agents as one way to help. The team can change that tactic and keep pursuing the same Objective.
 
-“Make more calls” is an activity. “Increase policy count by 15%” is a measurable result, not an objective. An objective gives purpose to the measures that follow.
+## Key Result
 
-## Key Results: measurable proof of success
+**Increase qualified new annual policies issued from 1,000 in the preceding quarter to 1,150 in Q1 2027, by March 31.**
 
-A key result states *how much change, in which outcome, over what period*. Each KR should include a baseline, a target, a defined population or denominator, and a deadline. Where baseline data is missing, establishing it is a prerequisite rather than pretending the target is precise.
+A Key Result identifies the outcome to measure, the population, the baseline, the target and the deadline. Here the team counts each newly issued annual policy once using its existing qualification rules. It applies those rules to both quarters. This prevents an apparent gain from admitting a new class of policies to the count halfway through the campaign. The target establishes how the team will recognize attainment. An increase alone cannot establish how much business the campaign caused.
 
-**Illustrative KR1:** Increase qualified new policies issued from 1,000 to 1,150 per quarter.
+If management also wants a margin Key Result, specify which margin can be observed by the deadline. For example, the team could seek to raise estimated contribution margin at binding from 18% in the previous quarter to 21% for Q1 issues. Label the result as an estimate and schedule a later comparison with realized margin. The issuance count is the Key Result followed through the rest of this case.
 
-**Illustrative KR2:** Increase new-business contribution margin from 18% to 21% over the same period.
+## Guardrail
 
-These values are hypothetical, not recommended insurance benchmarks. Unlike an objective, each KR can be tested for attainment.
+**Review the campaign if first renewal for the Q1 2027 acquisition cohort falls more than two percentage points below the comparable Q1 2026 cohort.**
 
-## Guardrails: boundaries on unacceptable consequences
+Both cohorts contain the qualified new annual policies originally issued during the named quarter. First renewal is the number that renew for a second term divided by that original count. An early cancellation stays in the denominator. Removing policies as they cancel would make the campaign look better precisely when customers were leaving. Agree on the comparator and tolerance at the outset, then apply them once each cohort has reached first renewal.
 
-A guardrail states *what we are unwilling to sacrifice while pursuing the KRs*. It uses a measurable boundary or an explicit investigation trigger. Guardrails are **non-compensating**: outstanding results on a KR do not erase a serious guardrail breach.
+The **commercial director** owns the review, due by **April 30, 2028**. Until first renewal can be assessed, the Guardrail is **pending** and the overall judgment is provisional. Only the director may authorize expansion during that period, recording the rationale and a date to revisit the decision. The director can then answer a request for more budget without pretending the team already knows the renewal outcome.
 
-**Illustrative G1:** Early cancellation rate for the new-business cohort must not exceed 5% during its defined observation window.
+The Guardrail is **non-compensating**. However many policies the team writes, a material breach still calls for its own decision. If the renewal rate falls, the director may ask for a breakdown by product or sales channel to understand where it fell. That breakdown is optional supporting evidence for this Guardrail. Legal and safety obligations remain binding throughout.
 
-**Illustrative G2:** Renewal rate for comparable acquisition cohorts must not deteriorate by more than two percentage points, evaluated when those cohorts mature.
+## The same measure can serve different purposes
 
-These thresholds are examples only. In practice, they require a defensible baseline, comparison group, data-quality check, and designated decision-maker. A delayed guardrail may remain **pending**, not “passed,” when the quarter ends.
-
-## Diagnostics: supporting guardrail assessment
-
-Diagnostics are **not** an additional Balanced OKR component. They are analytical tools used when needed to determine whether a guardrail is being respected or to investigate a possible breach.
-
-For example, if aggregate early cancellations are below the threshold, examine cancellations by product, acquisition channel, agent, and cohort to see whether the aggregate conceals a material problem. The segmentation is evidence used to evaluate G1, not a collection of new performance targets.
-
-A diagnostic may also reveal that a guardrail's definition is inadequate. The response is to refine the guardrail through an explicit review—not silently promote every diagnostic into a new KR.
-
-## The separation test
-
-| Item | Distinguishing test |
+| If the Objective is to… | Use first renewal this way |
 | --- | --- |
-| Objective | Does it state a desirable business change without specifying the score? |
-| Key Result | Does it specify a measurable success outcome, baseline, target, and time? |
-| Guardrail | Does it specify a boundary or review trigger on material harm? |
-| Supporting diagnostic | Does it help assess the guardrail without becoming an independent success target? |
+| Improve retention | Make it a **Key Result**. For example, increase first renewal among a defined cohort of annual policies from 84% to 88% by its renewal review. |
+| Grow sustainable new business | Use it as a **Guardrail**. A decline past the agreed tolerance triggers a review of the acquisition campaign. |
 
-If a proposed KR merely says “improve conversion,” it is incomplete: add a baseline, target, population, and deadline. If a guardrail says “maintain quality,” it is incomplete: identify what deterioration matters and how it will trigger action.
+What role should a measure play? Ask what the team would decide if it moved. The retention team wants to move renewal upward. The acquisition team wants to increase qualified issuance and has promised to act if renewal deteriorates. For either team, splitting the rate into twenty product lines is worthwhile only if the breakdown would inform a decision.
 
-## Handling a guardrail breach
-
-Confirm the measurement, investigate whether the breach is real and material, and decide whether to stop, modify, or explicitly authorize continued work within applicable obligations. Report **KR achieved; guardrail breached** rather than averaging the two into a green score. Compliance, legal, and safety requirements remain binding regardless of the OKR framework.
-
-## Keep the model light
-
-Not every OKR needs several guardrails, and not every guardrail needs extensive diagnostics. Select the most consequential foreseeable side effects. Only add analytical depth when it informs a decision.
-
-**Practice exercise:** Rewrite a current goal as one objective, two quantitative KRs, and one concrete guardrail. Identify the minimum evidence necessary to evaluate that guardrail.
+Try the [Balanced OKR worksheet](worksheet.md) with a current proposal. Write the Objective, one measurable Key Result and the Guardrail most likely to change a real decision. Ask a colleague who would act if the target were met today and the Guardrail evidence arrived next year.
 
 [Previous](01-one-sided-success.md) · [Next](03-mechanisms-and-incentives.md)

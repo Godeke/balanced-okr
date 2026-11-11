@@ -38,9 +38,9 @@ jobs:
 
           **Measure progress without losing sight of what matters.**
 
-          Balanced OKRs extends Objectives and Key Results with **guardrails** against unacceptable tradeoffs that protect against unacceptable side effects.
+          Sales hit its acquisition target. Should the campaign expand before those customers renew? Balanced OKRs pairs measurable Key Results with Guardrails that tell teams when to review a decision.
 
-          Start with the [short pamphlet](pamphlet.md), then read the [complete first-draft book](book/index.md), including the [bibliography](book/bibliography.md).
+          Start with the [short pamphlet](pamphlet.md), follow the worked example in the [book](book/index.md), or [copy the worksheet](book/worksheet.md) for your next team review. Sources are collected in the [bibliography](book/bibliography.md).
 
           The framework is a proposed adaptation, not an established certification or empirically validated standard.
 
@@ -49,7 +49,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           p=Path("site-content/pamphlet.md")
-          s=p.read_text().replace("../book/README.md", "book/index.md").replace("../README.md", "index.md")
+          s=p.read_text().replace("../book/README.md", "book/index.md").replace("../book/", "book/").replace("../README.md", "index.md")
           p.write_text(s)
           for p in Path("site-content/book").glob("*.md"):
               s=p.read_text().replace("../pamphlet/README.md", "../pamphlet.md").replace("../README.md", "../index.md").replace("(README.md)", "(index.md)")

@@ -4,7 +4,7 @@ This bibliography distinguishes **foundational works** from **practitioner guida
 
 ## Foundational works
 
-**[R1]** Doerr, John. *Measure What Matters: How Google, Bono, and the Gates Foundation Rock the World with OKRs*. Portfolio, 2018. Publisher information: https://www.penguinrandomhouse.com/books/551101/measure-what-matters-by-john-doerr/ . Background on objectives, key results, alignment, and organizational adoption. This book's recommendations are not adopted uncritically here.
+**[R1]** Doerr, John. *Measure What Matters: How Google, Bono, and the Gates Foundation Rock the World with OKRs*. Portfolio, 2018. Publisher information: https://www.penguinrandomhouse.com/books/551101/measure-what-matters-by-john-doerr/ . Background on objectives, key results, alignment, and organizational adoption. Chapters 1 and 4 return to Doerr’s pit-stop and sales-call examples.
 
 **[R2]** Goodhart, Charles A. E. “Problems of Monetary Management: The U.K. Experience.” In *Papers in Monetary Economics*, Reserve Bank of Australia, 1975. Historical source associated with Goodhart's law and instability of indicators when used for control. See Reserve Bank of Australia archives: https://www.rba.gov.au/publications/confs/1975/ .
 
@@ -14,6 +14,8 @@ This bibliography distinguishes **foundational works** from **practitioner guida
 
 **[R7]** NIST/SEMATECH. *e-Handbook of Statistical Methods*. National Institute of Standards and Technology. https://www.itl.nist.gov/div898/handbook/ . Statistical and experimental-design reference, including the importance of careful comparisons and measurement.
 
+**[R12]** Schweitzer, Maurice E., Lisa Ordóñez, and Bambi Douma. “Goal Setting as a Motivator of Unethical Behavior.” *Academy of Management Journal* 47, no. 3 (2004), 422–432. A laboratory study of reporting behavior when participants fell short of assigned goals, including goals without financial incentives. [Read the study](https://faculty.wharton.upenn.edu/wp-content/uploads/2014/06/Goal-Setting_1.pdf)
+
 ## Practitioner and technical guidance
 
 **[R5]** DORA. “DORA's Software Delivery Performance Metrics.” https://dora.dev/guides/dora-metrics/ . Current practitioner guidance grouping five software-delivery measures into throughput and instability. Earlier DORA literature used four key metrics; the definitions have evolved.
@@ -21,6 +23,12 @@ This bibliography distinguishes **foundational works** from **practitioner guida
 **[R6]** Beyer, Betsy, Chris Jones, Jennifer Petoff, and Niall Richard Murphy, eds. *Site Reliability Engineering: How Google Runs Production Systems*. O'Reilly Media, 2016. In particular “Embracing Risk”: https://sre.google/sre-book/embracing-risk/ . Describes service-level objectives and error budgets for managing the tradeoff between reliability and change.
 
 **[R8]** Kaplan, Robert S., and David P. Norton. “The Balanced Scorecard—Measures That Drive Performance.” *Harvard Business Review*, January–February 1992. https://hbr.org/1992/01/the-balanced-scorecard-measures-that-drive-performance-2 . An influential earlier approach to balancing organizational performance dimensions. Balanced OKRs is not the Balanced Scorecard and does not require its specific perspectives.
+
+**[R9]** Gil, Bruce. “Pairing Quantity and Quality Key Results: What are Some Examples?” *What Matters*. Reproduces the racing example in which pit-stop speed and errors are paired. [Read the example](https://www.whatmatters.com/faqs/quantity-quality-key-results-pairing-examples)
+
+**[R10]** Gil, Bruce. “Grading vs. Reflecting on OKRs: What’s the Difference?” *What Matters*. Discusses Doerr’s example of salespeople with different call volumes and customer outcomes. [Read the example](https://www.whatmatters.com/faqs/grading-and-reflecting-on-okrs-whats-the-difference)
+
+**[R11]** Panchadsaram, Ryan. “Determining Compensation the Right Way: Without OKRs.” *What Matters*. Describes the risks of direct bonus formulas and the role of ongoing feedback. [Read the guidance](https://www.whatmatters.com/resources/compensation-salary-bonuses-without-okrs)
 
 ## Editorial notes
 

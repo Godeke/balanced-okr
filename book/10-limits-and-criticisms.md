@@ -4,7 +4,7 @@ A framework designed to resist metric gaming can itself become a game. Balanced 
 
 ## More measurement can make things worse
 
-Every guardrail has a cost: data collection, definition disputes, reviews, and attention. A team with dozens of protected metrics may become unable to act. Prefer a few high-consequence guardrails and keep exploratory diagnostics out of the scoring process.
+Each Guardrail takes time to define, measure, and review. A team trying to protect dozens of metrics may struggle to act on any of them. Start with a consequence serious enough to change the decision. Ask for a breakdown only when it helps the reviewer assess that Guardrail.
 
 ## Guardrails can conceal value judgments
 
@@ -42,4 +42,4 @@ At the end of a quarter, ask:
 
 If these questions produce clearer, more responsible decisions, Balanced OKRs has earned its place. If the process produces only additional reporting, simplify or stop it.
 
-[Previous](09-failure-patterns.md) · [Bibliography](bibliography.md)
+[Previous](09-failure-patterns.md) · [Worksheet](worksheet.md) · [Bibliography](bibliography.md)
