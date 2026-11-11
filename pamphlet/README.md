@@ -1,82 +1,90 @@
 # Balanced OKRs
-## Measure progress without losing sight of what matters
+## Achieve the goal. Protect the business.
 
-> **An objective is not successful if achieving it causes unacceptable harm elsewhere.**
+> **A Key Result can be achieved while the business becomes worse off. A Guardrail makes that failure visible.**
 
-**Balanced OKRs** is a practical extension of Objectives and Key Results (OKRs). Ordinary OKRs ask whether we achieved a desired result. Balanced OKRs adds an equally important question: **What happened to the rest of the system while we were achieving it?**
+Traditional Objectives and Key Results (OKRs) help teams describe what they want to accomplish and how they will recognize success. **Balanced OKRs** retains that structure and adds **Guardrails**: explicit limits on unacceptable harm caused while pursuing the results.
 
-A team can hit every target and still leave the business worse off: sales can increase while renewals collapse; delivery can accelerate while production becomes unreliable; customer retention can improve while unprofitable accounts accumulate. Balanced OKRs makes these tradeoffs visible rather than treating them as someone else's problem.
+A sales team can increase new policies while acquiring customers who soon cancel. A software team can ship faster while production reliability deteriorates. In both cases, the Key Results may be genuinely achieved—but they are not the whole story.
 
-### The three parts
+## Three parts, three distinct jobs
 
-| Element | Question | Purpose |
+| Part | What it means | The test |
 | --- | --- | --- |
-| **Objective** | What meaningful outcome are we trying to create? | Describes the desired change, not an activity or metric. |
-| **Key Results** | What measurable results, from what baseline to what target and by when, demonstrate success? | Define the evidence of achievement. |
-| **Guardrails** | What adverse outcomes must remain within defined boundaries? | Prevent key-result success from concealing unacceptable harm. |
+| **Objective (O)** | The meaningful outcome we want. | *What are we trying to accomplish?* |
+| **Key Results (KR)** | Measurable success criteria, with baseline, target, population, and deadline. | *How will we know we achieved it?* |
+| **Guardrails (G)** | Boundaries on adverse consequences, with a threshold or review trigger and observation window. | *What must not deteriorate while we succeed?* |
 
-**Guardrails are the defining addition.** They are non-compensating: exceptional key-result performance cannot cancel out material guardrail violations. Each guardrail needs a defined metric or observable condition, a threshold or review trigger, a time window, and an owner.
+**A Guardrail is not another target to achieve.** It is a condition under which success remains acceptable. It is **non-compensating**: a spectacular KR cannot offset a material Guardrail breach.
 
-**Diagnostics are not a fourth component.** Where needed, supporting analysis—such as cancellations by cohort, product, or channel—helps establish whether a guardrail is being respected and whether aggregate data hides a breach. It does not create another target or an independent score.
+**Diagnostics are not a fourth part.** When necessary, analyze supporting data to determine whether a Guardrail is being respected. For example, a company-wide cancellation rate may conceal a serious problem in one product or sales channel. Segmenting that rate is evidence for evaluating the Guardrail, not a new objective or score.
 
-### Example: growing insurance business responsibly
+## Worked example 1 — Sustainable insurance growth
 
-**Objective:** Increase sustainable new business by improving the experience and suitability of policies sold.
+**Objective:** Grow sustainable new insurance business.
 
-- **KR1:** Improve qualified quote-to-bind conversion from an established baseline to a defined target.
-- **KR2:** Increase new-business contribution margin, measured consistently by product segment.
-- **Guardrails:** No unacceptable increase in early cancellations, coverage corrections, complaints, or deterioration in renewal performance for comparable acquisition cohorts.
-- **Guardrail evidence (as needed): Lead source, account size, outreach method, time to quote, and conversion by segment.
+**Key Results — desired outcomes**
+- **KR1:** Increase qualified new policies issued from **1,000 to 1,150 per quarter**.
+- **KR2:** Increase new-business contribution margin from **18% to 21%** over the same period.
 
-**Why balance matters:** Incentives to maximize immediate volume can encourage pressure-selling or poor-fit policies. Renewal and profitability outcomes may emerge long after the initial sale. Track acquisition cohorts beyond the quarter and use validated leading indicators in the meantime.
+**Guardrails — unacceptable consequences**
+- **G1:** Early cancellation rate for the acquired cohort must not exceed **5%** within the defined early-cancellation window.
+- **G2:** Renewal rate for comparable acquisition cohorts must not fall by more than **2 percentage points**, evaluated when renewal data becomes available.
 
-### Example: delivering software faster *and* more reliably
+**Evidence to assess Guardrails (only as needed):** Review cancellations by product, lead source, agent, and acquisition cohort; compare renewal cohorts with like-for-like business. A renewal Guardrail that cannot yet be observed is **pending**, not passed.
 
-**Objective:** Reduce the time to deliver valuable software changes without weakening production reliability.
+*Why it matters:* Optimizing new-business volume alone can reward poor-fit sales whose costs appear after the quarter closes.
 
-- **KR1:** Reduce median lead time from approved change to production.
-- **KR2:** Improve the proportion of planned changes delivered within the agreed window.
-- **Guardrails:** Change failure rate and recovery time must remain within agreed tolerances; security and compliance controls must not be bypassed.
-- **Guardrail evidence (as needed): Deployment frequency, work-item size, rollback causes, incident types, and approval delays.
+## Worked example 2 — Faster, reliable software delivery
 
-**Why balance matters:** Deployment counts are activity measures; faster deployment is valuable only when the software is useful and reliable. Guard against changing the definition of a deployment merely to improve the number.
+**Objective:** Deliver valuable software changes to customers more quickly without sacrificing reliability.
 
-### Seven questions before approving an OKR
+**Key Results — desired outcomes**
+- **KR1:** Reduce median time from approved change to production from **10 days to 5 days** during the quarter.
+- **KR2:** Increase the share of planned changes delivered within their agreed delivery window from **70% to 85%**.
 
-1. **Outcome:** If the key results improve, does the intended business outcome actually improve?
-2. **Side effects:** What else could get worse as people pursue this target?
-3. **Gaming:** How might someone improve the metric without improving the business—even in good faith?
-4. **Authority:** Who owns the outcome, and which teams control critical dependencies?
-5. **Evidence:** Is the activity-to-outcome relationship established, or is this an experiment?
-6. **Horizon:** Which effects may appear after the quarter ends?
-7. **Revalidation:** When will we test whether the metrics still mean what we think they mean?
+**Guardrails — unacceptable consequences**
+- **G1:** Change failure rate must not exceed the **agreed reliability limit** over the same period.
+- **G2:** Service recovery time must remain within the **agreed service-level tolerance**; required security controls remain mandatory.
 
-### Design for learning, not scorekeeping
+**Evidence to assess Guardrails (only as needed):** Inspect incidents by deployment, severity, affected service, rollback reason, and recovery time. Confirm that deployment and incident definitions have not changed to make the metrics look better.
 
-**Separate OKRs from compensation decisions.** Removing direct bonus formulas reduces sandbagging, but recognition, promotion, and resource allocation can still create indirect incentives. Assess the quality of the objective and the decisions made, not just the percentage achieved.
+*Why it matters:* Shorter lead time is valuable, but not when it merely delivers instability faster.
 
-**Invite frontline discovery.** Employees often see problems leaders cannot. Encourage bottom-up proposals, but don't prescribe an arbitrary quota or let local optimizations override company outcomes. A library of examples should provide *patterns and pitfalls*, not easy targets to copy.
+**All numerical values above are hypothetical illustrations, not industry benchmarks or recommended thresholds.** Actual Guardrails need defensible baselines, measurement definitions, and accountable reviewers.
 
-**Treat uncertain causal claims as experiments.** A phone call may help on a complex commercial account but add little on a simple policy. A useful discovery OKR can succeed by demonstrating that an intervention does *not* work. Where possible, compare outcomes across appropriately constructed groups.
+## Before approving an OKR, ask
 
-**Name cross-team dependencies.** A business unit can own an outcome while development, underwriting, operations, and analytics contribute. Participation should not mean undefined accountability: specify commitments, decision rights, and shared capacity.
+1. **Objective:** Is this a meaningful outcome, rather than an activity or metric?
+2. **Key Results:** Does each KR specify a baseline, target, population, and deadline?
+3. **Guardrails:** What important harm could arise, and where is its measurable boundary or review trigger?
+4. **Incentives:** How could the team improve the score without improving the business?
+5. **Dependencies:** Who owns the outcome, and have contributing teams committed capacity?
+6. **Evidence:** Are we executing a proven intervention or testing a hypothesis?
+7. **Time horizon:** Will important consequences appear after the quarter—and who will follow them?
 
-**Expect imperfect first attempts.** Early cycles should reward clear definitions, honest baselines, and learning. Don't declare every missed stretch target a failure—or every achieved easy target a success.
+## Use Balanced OKRs to improve decisions
 
-**Retire stale measures.** Metrics that were useful when introduced can become distorted as teams adapt. Revisit recurring OKRs and their underlying assumptions; do not preserve them merely because they produce tidy dashboards.
+**Keep OKRs away from bonus formulas.** Direct incentives encourage easy targets and sandbagging; indirect incentives from status and promotion still deserve attention.
 
-### A lightweight operating rhythm
+**Invite frontline proposals.** Employees often identify opportunities leadership cannot see. Encourage experiments without imposing an arbitrary quota of bottom-up goals.
 
-**Before the quarter:** Define the outcome, establish baselines, identify guardrails, agree on ownership and dependencies, and record which assumptions are unproven.
+**Do not confuse activity with impact.** Agent calls, deployments, and tickets closed may be useful operational information, but they do not by themselves demonstrate customer or business value.
 
-**During the quarter:** Review key results *and* guardrails together. Investigate divergences, unexpected side effects, and indications that a metric has become a target in its own right.
+**Make cross-team commitments explicit.** One team may own an outcome while engineering, underwriting, and operations contribute. Shared capacity must be agreed, not assumed.
 
-**After the quarter:** Evaluate business impact and decision quality. Continue following delayed outcomes such as renewal cohorts. Retire, revise, or repeat an OKR based on evidence—not habit.
+**Review and retire stale measures.** People and systems adapt. Recheck whether a metric still represents the outcome it was intended to measure.
+
+**When a Guardrail triggers, investigate and decide.** Validate the data, assess materiality, and modify, stop, or explicitly review the initiative as appropriate. Never average the breach away. Legal, safety, and compliance obligations remain binding regardless of an OKR.
+
+**Keep the process lightweight.** Use the fewest Key Results and Guardrails that make the important tradeoffs visible. Add diagnostic analysis only when it helps evaluate a Guardrail.
 
 ---
 
-**The governing test:** *Did we improve the business, or did we merely improve the numbers?*
+### The governing question
 
-*Balanced OKRs is a proposed adaptation of the OKR approach, intended for discussion and refinement. Examples are illustrative; organizations should define their own baselines, thresholds, time horizons, and regulatory obligations.*
+**Did we improve the business—or did we merely improve the numbers?**
 
-[Explore the longer guide](../book/README.md) · [Back to the repository](../README.md)
+*Balanced OKRs is a proposed adaptation of OKR practice, not a formally validated standard. This is the First Edition Draft.*
+
+[Read the full book](../book/README.md) · [Repository](../README.md)
