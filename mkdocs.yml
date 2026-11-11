@@ -1,5 +1,5 @@
 site_name: Balanced OKRs — First Edition Draft
-site_description: A practical approach to meaningful progress with explicit guardrails and diagnostic metrics
+site_description: A field guide and worksheet for setting Objectives, measuring Key Results, and acting on Guardrails
 site_url: https://godeke.github.io/balanced-okr/
 repo_url: https://github.com/Godeke/balanced-okr
 repo_name: Godeke/balanced-okr
@@ -23,4 +23,5 @@ nav:
       - "8. Adoption Playbook": book/08-adoption-playbook.md
       - "9. Failure Patterns": book/09-failure-patterns.md
       - "10. Limits and Criticisms": book/10-limits-and-criticisms.md
+      - Balanced OKR worksheet: book/worksheet.md
       - Bibliography: book/bibliography.md

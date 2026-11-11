@@ -1,39 +1,35 @@
 # Chapter 6 — Time Horizons and Delayed Consequences
 
-Quarterly reporting rewards what can be seen quickly. Some of the most important consequences of decisions appear only after a quarter closes. Insurance renewals, customer trust, technical debt, and operational resilience all have different clocks.
+Quarterly reporting favors what a team can observe quickly. A new policy can be counted when it is issued. Whether that customer stays for a second annual term becomes clear the following year. The team needs a way to close the quarter and keep responsibility for that later decision.
 
-## The renewal problem
+## March 31, 2027 — The expansion request
 
-A campaign may generate new policies in January while the meaningful renewal evidence appears the following year. Declaring the campaign successful in March based only on issued policies leaves the most important question unanswered: did it acquire suitable, sustainable business?
+Return to the acquisition campaign from Chapter 2. The team has issued **1,150 qualified new annual policies**. It met the Key Result. The customer cohort has yet to reach first renewal, so the Guardrail is **pending** and the overall judgment is provisional.
 
-Use **acquisition cohorts**: group customers by acquisition period and relevant product or channel, then follow their cancellations, renewal behavior, complaints, and economics over time. Compare like with like, adjusting for material differences in exposure and mix.
+The commercial director leaves expansion on hold and sets the renewal review for April 30, 2028. If sales proposes an earlier expansion, only the director may authorize it. The decision record must give the rationale for acting early and a date to reconsider. Issuance performance, by itself, grants no such authority.
 
-A cohort dashboard should preserve the original intervention and its assumptions so later reviewers can trace results to the decision that created them.
+During the wait, service staff can bring early cancellations or complaints to the director's attention. A cluster of customers saying the product was misdescribed would deserve attention right away. A quiet complaint inbox still leaves the renewal question open.
 
-## Provisional and mature evidence
+## April 30, 2028 — The renewal review
 
-A quarterly OKR can close administratively while its evaluation remains provisional. Separate:
+The first-renewal window has closed for both cohorts. The comparable Q1 2026 cohort renewed at **86%**. Of the 1,150 qualified annual policies originally issued in Q1 2027, **943 renewed**, or **82%**. The denominator still includes customers who canceled early. The decline is **four percentage points**, beyond the agreed tolerance of two.
 
-- **Immediate evidence:** conversion, processing time, or delivery lead time.
-- **Early signals:** cancellations, corrections, complaints, incident trends.
-- **Mature outcomes:** renewal, realized margin, long-term reliability, or customer lifetime value.
+The director pauses the planned expansion. Sales and underwriting check which product and channel combinations account for the decline. They review renewal price changes and sample files for evidence that coverage fit the customer's needs. A broad price increase would call for a different response from a pattern of unsuitable sales in one channel. The director can protect customers while those explanations are tested. Attributing the decline to pressure selling on the rate alone would go beyond the evidence.
 
-Do not pretend early signals are substitutes for mature outcomes. Document which conclusions remain pending and when they will be revisited.
+The March issuance result stands. The director updates the acquisition record with the Guardrail breach, the expansion decision and responsibility for the investigation. The updated record shows why the director paused a campaign that met its sales target.
 
-## Long-term goals and short-term bets
+## Choose a review date that fits the outcome
 
-A 2030 company objective can guide annual priorities, while quarterly OKRs test the next important assumptions. The quarterly objective should be a meaningful step or experiment, not merely a miniature copy of the long-term ambition.
+Start with the last customer or change in the measurement population. A policy issued on the final day of the quarter needs the same opportunity to renew as one issued on the first day. Use a cohort of comparable age and allow time to reconcile records. Keep the original definitions and document any differences in product or channel mix that could affect interpretation.
 
-Long horizons also invite narrative drift: when an annual result is poor, people may claim it is all part of a five-year plan. Use explicit milestones and decision gates without requiring false precision years into the future.
+Other outcomes mature on different schedules. An estimate of contribution margin at binding can inform a decision now. Set a date to compare it with realized margin once earned revenue and costs are known. In software, a faster release can increase maintenance work that becomes apparent only after several releases. If a team accepts a shortcut, name who will review the subsequent incidents or maintenance burden and when.
 
-## Technical debt as delayed cost
+## A longer horizon still needs a next decision
 
-Shipping quickly can create future maintenance or reliability costs. Not every shortcut is harmful, but undocumented and unbounded debt hides the cost of present velocity. Record deliberate tradeoffs, owners, and revisit dates. Use production outcomes and maintenance burden to assess whether the debt is becoming material.
+A 2030 company objective can guide annual priorities without dictating every quarter's work. Ask which uncertainty the team can reduce this quarter that would change the next investment. An initiative small enough to finish in an afternoon may be a useful task within that effort. The Key Result should describe the change worth judging when the work is done.
 
-## Keeping accountability across organizational changes
+Owners can move roles before the evidence matures. Transfer the review date, cohort definition and decision authority with the work. A successor should be able to see why the original team considered expansion and what evidence it agreed to wait for.
 
-People change roles and teams reorganize. Preserve decision logs and cohort definitions rather than relying on institutional memory. Follow-up should be about learning and responsibility, not retroactive blame for every adverse outcome.
-
-**Practice exercise:** For each proposed KR, ask when the *full* consequence becomes observable. If it is later than the OKR period, name the follow-up owner, cohort, and review date.
+**Practice exercise.** Choose a current outcome that will mature after the quarter. In the [worksheet](worksheet.md), record what can be reported at quarter close, which judgment will remain provisional, and who can authorize action before the review date.
 
 [Previous](05-organization-as-system.md) · [Next](07-operating-balanced-okrs.md)

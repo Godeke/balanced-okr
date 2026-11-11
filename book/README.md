@@ -1,12 +1,12 @@
 # Balanced OKRs: A Field Guide to Meaningful Progress
 
-*Working book manuscript and chapter plan — First edition draft — November 2026*
+*First Edition Draft — November 2026*
 
 ## Premise
 
 An OKR system is a mechanism that changes behavior, not merely a dashboard that reports it. People respond to whatever the organization repeatedly measures and celebrates. If a key result captures only one side of a tradeoff, the organization can achieve it and still lose.
 
-**Balanced OKRs** adds explicit **guardrails** and supporting diagnostic analysis to objectives and key results, then makes measurement validity, unintended consequences, cross-team dependencies, and delayed outcomes part of normal management review.
+Sales can hit its acquisition target months before those customers reach their first renewal. An Objective gives the work a purpose, a Key Result records the improvement sought, and a Guardrail identifies a consequence that warrants action. The team decides in advance who can authorize expansion while renewal evidence is pending and who will reopen the decision when it arrives.
 
 This is an adaptation of OKR practice, not an established certification or a substitute for safety, compliance, financial, or personnel management.
 
@@ -26,15 +26,16 @@ Business leaders, team managers, individual contributors, and technical organiza
 8. [A practical adoption playbook](08-adoption-playbook.md)
 9. [Failure patterns and case studies](09-failure-patterns.md)
 10. [Limits and criticisms](10-limits-and-criticisms.md)
-11. [Bibliography and further reading](bibliography.md)
+
+[Copy the Balanced OKR worksheet](worksheet.md) · [Bibliography and further reading](bibliography.md)
 
 ## Editorial commitments
 
-- **Outcome over activity.** Do not mistake counts of actions for evidence of value.
+- **Outcome over activity.** Ask what changed for the customer or the business and what evidence connects the activity to that change.
 - **Non-compensating guardrails.** Material damage cannot be averaged away by strong key results.
 - **Small, meaningful sets.** Not everything important belongs in a quarterly OKR.
 - **No invented precision.** Numeric thresholds in examples must be identified as hypothetical unless sourced.
-- **Distinguish evidence from opinion.** The book will separate established research, practitioner observations, and our proposed design choices.
+- **Distinguish evidence from opinion.** The bibliography identifies research and practitioner guidance. The decision rules and worked examples in this book are our proposed practice.
 - **Respect constraints.** Safety, legal obligations, service reliability, and shared team capacity cannot be treated as optional tradeoffs.
 - **Revisable by design.** Reevaluate metrics as behavior and conditions change.
 
@@ -44,7 +45,6 @@ The [pamphlet](../pamphlet/README.md) is the short introduction and should remai
 
 ### Possible appendices
 
-- Balanced OKR worksheet and approval checklist
 - Guardrail taxonomy and threshold-setting examples
 - Discovery versus execution OKR templates
 - Quarterly retrospective questions

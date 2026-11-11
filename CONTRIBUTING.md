@@ -6,7 +6,7 @@ Balanced OKRs is a developing set of practical writing materials. Contributions 
 
 - Edit Markdown directly; prefer descriptive headings, short paragraphs, and readable tables.
 - Keep the pamphlet concise and self-contained. Expand detailed arguments in the book.
-- Use **Objective**, **Key Result**, **Guardrail**, and **Diagnostic Metric** consistently.
+- Use **Objective**, **Key Result**, and **Guardrail** for the three parts of a Balanced OKR. Put optional diagnostic analysis under the Guardrail it helps evaluate.
 - Label hypothetical thresholds and examples rather than presenting them as measured results.
 - Cite sources for empirical claims, historical claims, and named studies. Distinguish our proposed practice from established OKR guidance.
 - Discuss meaningful counterexamples and the administrative cost of the approach.
