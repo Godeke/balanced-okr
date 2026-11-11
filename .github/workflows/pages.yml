@@ -1,0 +1,66 @@
+name: Publish Balanced OKRs to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install site generator
+        run: python -m pip install 'mkdocs==1.6.1'
+      - name: Prepare Markdown source
+        run: |
+          mkdir -p site-content/book
+          cp book/*.md site-content/book/
+          mv site-content/book/README.md site-content/book/index.md
+          cp pamphlet/README.md site-content/pamphlet.md
+          cat > site-content/index.md <<'EOF'
+          # Balanced OKRs
+
+          **Measure progress without losing sight of what matters.**
+
+          Balanced OKRs extends Objectives and Key Results with **guardrails** against unacceptable tradeoffs and **diagnostic metrics** to understand what changed.
+
+          Start with the [short pamphlet](pamphlet.md), then read the [complete first-draft book](book/index.md), including the [bibliography](book/bibliography.md).
+
+          The framework is a proposed adaptation, not an established certification or empirically validated standard.
+
+          [Contribute or review the manuscript on GitHub](https://github.com/Godeke/balanced-okr).
+          EOF
+          python - <<'PY'
+          from pathlib import Path
+          p=Path("site-content/pamphlet.md")
+          s=p.read_text().replace("../book/README.md", "book/index.md").replace("../README.md", "index.md")
+          p.write_text(s)
+          for p in Path("site-content/book").glob("*.md"):
+              s=p.read_text().replace("../pamphlet/README.md", "../pamphlet.md").replace("../README.md", "../index.md")
+              p.write_text(s)
+          PY
+      - name: Build site
+        run: mkdocs build --strict
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site-output
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
