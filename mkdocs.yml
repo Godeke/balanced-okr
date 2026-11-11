@@ -1,0 +1,26 @@
+site_name: Balanced OKRs
+site_description: A practical approach to meaningful progress with explicit guardrails and diagnostic metrics
+site_url: https://godeke.github.io/balanced-okr/
+repo_url: https://github.com/Godeke/balanced-okr
+repo_name: Godeke/balanced-okr
+docs_dir: site-content
+site_dir: site-output
+theme:
+  name: mkdocs
+  navigation_depth: 3
+nav:
+  - Home: index.md
+  - Pamphlet: pamphlet.md
+  - Book:
+      - Introduction and Contents: book/index.md
+      - "1. One-sided Success": book/01-one-sided-success.md
+      - "2. Four-Part Balanced OKR": book/02-the-four-part-balanced-okr.md
+      - "3. Mechanisms and Incentives": book/03-mechanisms-and-incentives.md
+      - "4. Causality and Evidence": book/04-causality-and-evidence.md
+      - "5. Organization as a System": book/05-organization-as-system.md
+      - "6. Time Horizons": book/06-time-horizons.md
+      - "7. Operating Balanced OKRs": book/07-operating-balanced-okrs.md
+      - "8. Adoption Playbook": book/08-adoption-playbook.md
+      - "9. Failure Patterns": book/09-failure-patterns.md
+      - "10. Limits and Criticisms": book/10-limits-and-criticisms.md
+      - Bibliography: book/bibliography.md
