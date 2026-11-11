@@ -14,7 +14,7 @@ nav:
   - Book:
       - Introduction and Contents: book/index.md
       - "1. One-sided Success": book/01-one-sided-success.md
-      - "2. Objectives, KRs, and Guardrails": book/02-the-four-part-balanced-okr.md
+      - "2. Objectives, KRs, and Guardrails": book/02-the-three-part-balanced-okr.md
       - "3. Mechanisms and Incentives": book/03-mechanisms-and-incentives.md
       - "4. Causality and Evidence": book/04-causality-and-evidence.md
       - "5. Organization as a System": book/05-organization-as-system.md
