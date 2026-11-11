@@ -59,14 +59,15 @@ This third failure mode matters because merely policing manipulation will not so
 
 A tempting solution is to keep adding metrics until the scorecard appears complete. But more key results can make goals harder to interpret and easier to negotiate away.
 
-Balanced OKRs therefore distinguishes four roles:
+Balanced OKRs therefore distinguishes three primary roles:
 
 1. **Objective:** the meaningful change sought.
-2. **Key Results:** evidence that the desired change occurred.
+2. **Key Results:** measurable evidence that the desired change occurred.
 3. **Guardrails:** constraints on unacceptable damage elsewhere.
-4. **Diagnostic Metrics:** context for investigating mechanisms and causes.
 
-A guardrail is not just another score that can be averaged with other scores. A diagnostic metric is not necessarily something teams should maximize. Keeping these roles distinct reduces the temptation to make every measurement into a contest.
+Diagnostics are optional supporting analyses for evaluating guardrails, not a separate score or fourth component.
+
+A guardrail is not just another score that can be averaged with other scores. Supporting diagnostic analysis is not another target to maximize. Keeping these roles distinct reduces the temptation to make every measurement into a contest.
 
 ## Guardrails require judgment
 
