@@ -33,15 +33,7 @@ One team wants approved changes to reach its quoting service sooner. Its **KR** 
 
 ## Draft your own
 
-Copy the table into a team note and replace the bracketed prompts.
-
-| Fill in | Your entry |
-| --- | --- |
-| Objective | We want [outcome] to improve for [people affected]. The accountable owner is [name]. |
-| Key Result | For [population], move [measure] from [baseline] to [target] by [date]. |
-| Guardrail | Review or act if [trigger] during [window]. [Reviewer] will have the evidence by [date]. |
-| Pending evidence | While [evidence] is pending, [person] may authorize [action]. Record [reason] and revisit on [date]. |
-| At review | KR result [actual]. Guardrail status [finding]. [Owner] will [decision] because [reason]. Follow up on [date]. |
+Use one copy per Objective and return to it when the results arrive. [Copy the Balanced OKR worksheet](../book/worksheet.md)
 
 Before adopting a measure, ask a frontline colleague how someone could hit it while customers lose. If a colleague questions a universal agent-call target, test whether calls improve conversion enough to justify staff time on small and complex accounts separately. If the test needs engineering, ask what capacity the team can commit and which other work will wait.
 
@@ -49,4 +41,4 @@ Keep OKR scores out of bonus formulas. An existing commission or public sales ra
 
 *First Edition Draft.*
 
-[Open the full worksheet](../book/worksheet.md) · [Read the book](../book/README.md)
+[Read the book](../book/README.md)
