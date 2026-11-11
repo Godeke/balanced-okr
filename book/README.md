@@ -17,7 +17,7 @@ Business leaders, team managers, individual contributors, and technical organiza
 ## Chapters
 
 1. [The problem with one-sided success](01-one-sided-success.md)
-2. [The three-part Balanced OKR](02-the-three-part-balanced-okr.md)
+2. [The three-part Balanced OKR](02-the-four-part-balanced-okr.md)
 3. [Mechanisms and incentives](03-mechanisms-and-incentives.md)
 4. [Causality and evidence](04-causality-and-evidence.md)
 5. [The organization as a system](05-organization-as-system.md)
