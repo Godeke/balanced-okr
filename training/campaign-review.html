@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A two-round Balanced OKR exercise about an insurance campaign, with dated fictional reports and a decision record.">
-  <title>Would you expand the campaign? · Balanced OKRs</title>
+  <meta name="description" content="Decide whether to expand, change, or retire a scheduled quote follow-up call. Use two dated reports and record what you would authorize.">
+  <title>Would you expand the quote follow-up pilot? · Balanced OKRs</title>
   <style>
     :root {
       color-scheme: light;
@@ -146,6 +146,12 @@
     @media screen and (max-width: 22rem) {
       .report th, .report td { font-size: .8rem; padding-inline: .15rem; }
     }
+    .case-okr { display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 1rem 2rem; margin-top: 1.2rem; max-width: 68rem; }
+    .case-okr dt { color: var(--teal-dark); font-weight: 700; font-size: .85rem; }
+    .case-okr dd { margin: .18rem 0 0; font-size: .92rem; }
+    @media (max-width: 48rem) {
+      .case-okr { grid-template-columns: 1fr; gap: .65rem; }
+    }
     @page { margin: 15mm; }
     @media print {
       html, body { background: white; color: black; font-size: 10.5pt; }
@@ -189,8 +195,13 @@
   <main class="container">
     <header class="intro">
       <p class="meta">Decision exercise · About 8 minutes</p>
-      <h1>Would you expand the campaign?</h1>
-      <p class="lede">You’re the commercial director. Your goal is to grow new business that customers choose to renew. Sales hit its acquisition target and wants to expand. Decide what you’ll authorize with the evidence available on each date.</p>
+      <h1>Would you expand the quote follow-up pilot?</h1>
+      <p class="lede">You’re the commercial director. <span id="case-method">In three pilot offices, a sales rep calls the referring agent two business days after sending a new-business quote if it is still open.</span> Elsewhere, reps choose when to follow up. Sales wants every office to adopt the call. Use the agreed OKR below to decide where, and in what form, the practice should continue.</p>
+      <dl class="case-okr" aria-label="The OKR the sales team is pursuing">
+        <div><dt>Objective</dt><dd id="case-objective">Grow new insurance business that customers choose to renew.</dd></div>
+        <div><dt>Key Result</dt><dd>Increase qualified new annual policies issued by the three pilot offices from 1,000 to 1,150 in Q1 2027.</dd></div>
+        <div><dt>Guardrail</dt><dd>Review the rollout if first renewal falls more than two percentage points below the comparable prior-year Q1 cohort.</dd></div>
+      </dl>
     </header>
 
     <nav class="steps" aria-label="Exercise stages">
@@ -199,7 +210,7 @@
       <button class="step" type="button" data-step="2" aria-controls="debrief" disabled><span class="number" aria-hidden="true">3</span> <span>Debrief</span></button>
     </nav>
     <noscript><p>This exercise uses JavaScript to reveal each report and prepare your decision record. Open the HTML in a browser with JavaScript enabled to work through both rounds.</p></noscript>
-    <p class="mode-note" id="facilitator-note" hidden><strong>Facilitator view.</strong> Pause for discussion before revealing the next page. You can enter a group decision or leave the fields blank. The next report is available when you choose to reveal it.</p>
+    <p class="mode-note" id="facilitator-note" hidden><strong>Facilitator view.</strong> Before each reveal, ask the group what reps should do about the scheduled calls and which evidence supports that choice. You can enter a group decision or leave the fields blank. The next report is available when you choose to reveal it.</p>
 
     <section class="stage" id="round-one" aria-label="Quarter close">
       <div class="case-grid">
@@ -209,10 +220,10 @@
             <h2>Quarter-end issuance report</h2>
             <p class="report-date">As of <time datetime="2027-03-31">March 31, 2027</time></p>
           </header>
-          <p class="report-summary">Sales issued <strong>1,150 qualified new annual policies</strong> against a target of 1,150. The policy count rose 15%. How much did the total written premium change?</p>
+          <p class="report-summary">In Q1, three sales offices tried a scheduled follow-up call. If a new-business quote was still open two business days after it was sent, a rep called the referring agent. The offices issued <strong>1,150 qualified new annual policies</strong>, meeting their target. Sales wants to extend the call rule to more offices.</p>
           <div class="table-wrap">
             <table>
-              <caption>New annual policies and premium written at issue</caption>
+              <caption>All qualifying new annual policies in the three pilot offices</caption>
               <thead>
                 <tr><th scope="col">Measure</th><th scope="col">Q4 2026</th><th scope="col">Q1 2027</th><th scope="col">Change</th></tr>
               </thead>
@@ -224,24 +235,24 @@
               </tbody>
             </table>
           </div>
-          <p class="report-note"><strong>Inflation assumption.</strong> In this fictional case, the average general price index rose from 100 in Q4 to 102 in Q1, or 2.0% from one quarter to the next. Dividing $2,530,000 by 1.02 gives its purchasing power in Q4 dollars. Insurance rate changes would require separate pricing data.</p>
-          <p class="report-note"><strong>Issue register.</strong> Oct 325 · Nov 345 · Dec 330. Jan 372 · Feb 358 · Mar 420. Each qualified new annual policy counts once under the same rules. Premium is the annual amount written at issue. Coverage limits, agency revenue, and profit each require other records.</p>
-          <p><strong>First renewal is pending.</strong> The agreed Guardrail calls for review if the share of policies renewing falls more than two percentage points below the comparable Q1 2026 cohort. The commercial director owns the review due April 30, 2028. Only the director may authorize earlier expansion, recording the reason and a date to revisit it.</p>
+          <p class="report-note"><strong>Inflation assumption.</strong> The fictional general price index rose from 100 in Q4 to 102 in Q1, or 2.0% over the quarter. Divide $2,530,000 by 1.02 for Q4 purchasing power. Insurance rate changes require separate data.</p>
+          <p class="report-note"><strong>Issue register.</strong> Oct 325 · Nov 345 · Dec 330. Jan 372 · Feb 358 · Mar 420. Each qualifying policy counts once, whether or not the rep placed a call. Premium is the annual amount written at issue. The previous quarter gives a baseline. Comparing similar offices using their usual follow-up during Q1 would help assess what the calls contributed.</p>
+          <p><strong>First renewal is pending.</strong> Review the pilot if first renewal falls more than two percentage points below the comparable Q1 2026 cohort. The commercial director owns the April 30, 2028 review. Only the director may extend the call rule earlier, recording why and when to revisit it.</p>
           <div class="report-tools"><button class="secondary" type="button" data-action="print-report">Print this report</button></div>
         </article>
         <aside class="decision-panel" aria-labelledby="decision-one-title">
           <p class="meta">March 31, 2027</p>
-          <h2 id="decision-one-title" tabindex="-1">What will you authorize?</h2>
-          <p>Sales wants a larger budget. How much growth came from writing more policies? What happened to the average premium and to the total after inflation? Use that evidence to decide how far the team can go while first renewal is pending.</p>
+          <h2 id="decision-one-title" tabindex="-1">Which offices should use the scheduled call?</h2>
+          <p>Sales wants to fund the calls company-wide. Weigh the increase in policies against the smaller average premium and the total after inflation. While first renewal is pending, where would you authorize the call rule?</p>
           <form id="first-decision">
             <fieldset>
-              <legend>Campaign scope</legend>
-              <label class="choice"><input type="radio" name="initial-action" value="hold" required><span>Keep the current scope</span></label>
-              <label class="choice"><input type="radio" name="initial-action" value="limited"><span>Authorize a limited expansion</span></label>
-              <label class="choice"><input type="radio" name="initial-action" value="expand"><span>Authorize the full expansion</span></label>
+              <legend>March decision on the call rule</legend>
+              <label class="choice"><input type="radio" name="initial-action" value="hold" required><span>Keep scheduled calls in the three pilot offices</span></label>
+              <label class="choice"><input type="radio" name="initial-action" value="limited"><span>Extend scheduled calls to a few more offices</span></label>
+              <label class="choice"><input type="radio" name="initial-action" value="expand"><span>Roll out scheduled calls to every office</span></label>
             </fieldset>
             <label class="field" for="first-reason">Why, and under what conditions?
-              <textarea id="first-reason" name="reason" rows="3" maxlength="3000" required placeholder="Which figures support your choice? What would you want to know about the cost of serving these policies?"></textarea>
+              <textarea id="first-reason" name="reason" rows="3" maxlength="3000" required placeholder="What supports this rollout decision? What would you want to know about the time spent on calls and the cost of serving these policies?"></textarea>
             </label>
             <label class="field" for="revisit">When will you revisit this decision?
               <input id="revisit" name="revisit" type="date" min="2027-04-01" max="2028-04-30" value="2028-04-30" required>
@@ -261,12 +272,12 @@
             <h2>First-renewal comparison</h2>
             <p class="report-date">As of <time datetime="2028-04-30">April 30, 2028</time></p>
           </header>
-          <p class="report-summary">Both cohorts have reached first renewal. Of the 1,150 policies issued in Q1 2027, <strong>943 renewed for a second term</strong>. What share of the original premium did those policies represent?</p>
+          <p class="report-summary">The three pilot offices tested a call to the referring agent when a new-business quote was still open after two business days. Of all 1,150 qualifying annual policies those offices issued in Q1 2027, <strong>943 renewed</strong>. This is the original cohort under every March rollout choice.</p>
           <div class="table-wrap">
             <table>
-              <caption>First renewal by policy count and original written premium</caption>
+              <caption>First renewal in the same three offices by policy count and original premium</caption>
               <thead>
-                <tr><th scope="col">Acquisition cohort</th><th scope="col">Q1 2026<br>comparison</th><th scope="col">Q1 2027<br>campaign</th></tr>
+                <tr><th scope="col">Acquisition cohort</th><th scope="col">Q1 2026<br>comparison</th><th scope="col">Q1 2027<br>pilot</th></tr>
               </thead>
               <tbody>
                 <tr><th scope="row">Policies originally issued</th><td>1,000</td><td>1,150</td></tr>
@@ -283,24 +294,25 @@
             <div class="bar-row"><span>Q1 2026</span><span class="track"><i style="width:86%"></i></span><strong>86%</strong></div>
             <div class="bar-row"><span>Q1 2027</span><span class="track"><i style="width:82%"></i></span><strong>82%</strong></div>
           </figure>
-          <p class="report-note"><strong>Reading the two shares.</strong> Both use the full original cohort, including early cancellations. For the premium share, divide the original premium on policies that renewed by the original premium on all policies issued in that cohort. Using issue prices for both amounts keeps repricing at renewal out of the comparison.</p>
-          <p><strong>Guardrail finding.</strong> The policy renewal rate fell four percentage points, from 86% to 82%, crossing the 84% lower boundary. The original premium share rose five points. The Guardrail applies to the policy count.</p>
-          <p class="report-note"><strong>Open questions.</strong> What did customers face at renewal? Review offers, product mix, and coverage fit to investigate the change. The issue register shows the original premium. The actual premium charged at renewal comes from a later transaction.</p>
+          <p class="report-note"><strong>Reading the two shares.</strong> Both shares include early cancellations in the denominator. The premium share divides the issue premium on policies that renewed by the issue premium on all qualifying policies. Repricing at renewal cannot change that calculation.</p>
+          <p><strong>Guardrail finding.</strong> The policy renewal rate fell four percentage points, from 86% to 82%, crossing the 84% lower boundary. The share of original premium on renewing policies rose five points. The count-based Guardrail requires the director to review the call rule.</p>
+          <p class="report-note"><strong>Open questions.</strong> The year-over-year comparison cannot establish whether the calls caused the decline. Check comparable offices where reps chose when to follow up, then examine renewal prices, product mix, and coverage fit.</p>
           <div class="report-tools"><button class="secondary" type="button" data-action="print-report">Print this report</button></div>
         </article>
         <aside class="decision-panel" aria-labelledby="decision-two-title">
           <p class="meta">April 30, 2028</p>
-          <h2 id="decision-two-title" tabindex="-1">What changes today?</h2>
-          <p>Compare the two Q1 cohorts at first renewal. What difference does it make that the Guardrail counts policies, while the premium comparison gives larger policies more weight?</p>
+          <h2 id="decision-two-title" tabindex="-1">Should reps keep making the scheduled call?</h2>
+          <p>Decide what reps should do in offices using the rule. The count-based Guardrail and the premium comparison give you different evidence. Choose a follow-up practice for pursuing the sales Objective of growing business that customers renew.</p>
           <form id="second-decision">
             <fieldset>
-              <legend>Response to the renewal finding</legend>
-              <label class="choice"><input type="radio" name="renewal-action" value="pause" required><span>Pause expansion and investigate</span></label>
-              <label class="choice"><input type="radio" name="renewal-action" value="continue"><span>Continue under a documented exception</span></label>
-              <label class="choice"><input type="radio" name="renewal-action" value="stop"><span>End the campaign</span></label>
+              <legend>April decision on the call rule</legend>
+              <label class="choice"><input type="radio" name="renewal-action" value="pause" required><span>Pause scheduled calls while we investigate</span></label>
+              <label class="choice"><input type="radio" name="renewal-action" value="modify"><span>Test a narrower call rule for quotes with an unresolved coverage question</span></label>
+              <label class="choice"><input type="radio" name="renewal-action" value="continue"><span>Continue the current call rule under a time-limited exception</span></label>
+              <label class="choice"><input type="radio" name="renewal-action" value="stop"><span>Retire the scheduled call and return follow-up timing to reps</span></label>
             </fieldset>
             <label class="field" for="second-reason">Why, and what evidence would you ask for?
-              <textarea id="second-reason" rows="4" maxlength="3000" required placeholder="What would you investigate about the customers who left? Explain how it could change your decision."></textarea>
+              <textarea id="second-reason" rows="4" maxlength="3000" required placeholder="What would help you distinguish the effect of the scheduled call from changes in pricing, coverage fit, or the accounts being served?"></textarea>
             </label>
             <p class="field-note" id="locked-second" hidden>This entry was recorded before the debrief was opened.</p>
             <div class="actions"><button class="primary" id="reveal-debrief" type="submit">Record decision and open debrief</button></div>
@@ -314,11 +326,13 @@
         <article class="record">
           <p class="meta">Commercial director · Fictional case</p>
           <h2 tabindex="-1" id="record-title">Your decision record</h2>
+          <p><strong>Objective.</strong> <span id="record-objective"></span></p>
+          <p><strong>Method under review.</strong> <span id="record-method"></span></p>
           <div class="record-entry">
             <h3>March 31, 2027 · Quarter close</h3>
             <p class="result" id="record-issuance-evidence">Issuance KR achieved at 1,150 policies, up 15%. Total written premium rose 1.2% to $2.53 million. Average premium fell from $2,500 to $2,200. With 2% inflation over the quarter, total premium fell about 0.8% in Q4 dollars. First renewal was pending.</p>
             <dl class="record-list">
-              <dt>Decision</dt><dd id="record-first-action"></dd>
+              <dt>March decision on the call rule</dt><dd id="record-first-action"></dd>
               <dt>Reason and conditions</dt><dd id="record-first-reason"></dd>
               <dt>Revisit date</dt><dd id="record-revisit"></dd>
             </dl>
@@ -327,7 +341,7 @@
             <h3>April 30, 2028 · First renewal</h3>
             <p class="result" id="record-renewal-evidence">943 of 1,150 policies renewed (82%), compared with 860 of 1,000 (86%). The four-point decline breached the Guardrail. Renewing policies accounted for 90% of the campaign cohort’s original premium, compared with 85% in the earlier cohort.</p>
             <dl class="record-list">
-              <dt>Decision</dt><dd id="record-second-action"></dd>
+              <dt>April decision on the call rule</dt><dd id="record-second-action"></dd>
               <dt>Reason and investigation</dt><dd id="record-second-reason"></dd>
             </dl>
           </div>
@@ -335,7 +349,7 @@
         </article>
         <aside class="commentary-card">
           <p class="meta">Debrief</p>
-          <h2>What did the second report change?</h2>
+          <h2>What did you learn about the call rule?</h2>
           <h3>At quarter close</h3>
           <p id="first-feedback"></p>
           <h3>At first renewal</h3>
@@ -343,9 +357,9 @@
           <h3>What the premium adds</h3>
           <p>The team wrote 15% more policies at an average premium 12% lower. Together those changes lifted written premium to $2.53 million. Keeping up with inflation would have taken $2.55 million. A smaller policy can be worth pursuing if the coverage fits the customer and commission income covers the service effort. The reports give you the premium. You would need commission and cost data to judge contribution.</p>
           <p>The 207 campaign policies that did not renew accounted for $253,000 of original premium, about $1,222 per policy. The 943 that renewed averaged about $2,415 at issue. Ask what happened to the smaller policies, including whether product or channel mix explains the gap. The director still owes a decision on the policy-count Guardrail.</p>
-          <h3>Compare with the book</h3>
-          <p>In Chapter 7, the director holds the campaign at its current scope in March. When first renewal comes in at 82% against 86%, the director pauses expansion. Underwriting checks product mix and prices, sales samples files for coverage fit, and both return on May 31. The four-point gap warrants action. Those checks help establish why it happened.</p>
-          <p><strong>Discuss together.</strong> Would the recommendation at either review change if your goal were to serve more small accounts? What evidence would tell you whether those customers and the business both benefited?</p>
+          <h3>Did the OKR guide the decision?</h3>
+          <p>The Key Result recorded the issuance gain. The Guardrail brought the director back when renewal fell. Both measures did their job. In Chapter 7, the director pauses expansion and asks sales and underwriting to check coverage fit, pricing, and product mix. In this exercise, you can also compare similar quotes handled with scheduled calls and with rep-timed follow-up. The office totals alone cannot tell you which practice helped customers.</p>
+          <p><strong>Discuss together.</strong> If you retired the call rule tomorrow, what other approach would you test to help customers choose coverage they will renew? A separate reason to revisit the OKR itself would be evidence that its measures systematically miss an outcome the team cares about.</p>
           <p class="online-links">Online reading · <a href="https://godeke.github.io/balanced-okr/book/07-operating-balanced-okrs/#a-completed-review">Completed review</a> · <a href="https://godeke.github.io/balanced-okr/book/worksheet/">Team worksheet</a></p>
         </aside>
       </div>
@@ -371,31 +385,14 @@
     const restartButton = document.querySelector('[data-action="restart"]');
     const restartDialog = byId('restart-dialog');
 
-    const choices = {
-      hold: {
-        label: 'Keep the current scope',
-        feedback: 'Holding scope buys time. Which evidence would bring your decision forward: service time per policy, commission income, or early cancellations among the smaller policies?'
-      },
-      limited: {
-        label: 'Authorize a limited expansion',
-        feedback: 'A limited expansion can give the team experience while first renewal is pending. Does your record cap the exposure and identify which accounts to include? Compare the service effort and commission on those policies at the next review.'
-      },
-      expand: {
-        label: 'Authorize the full expansion',
-        feedback: 'Full expansion exposes more customers before renewal quality is known. What makes the smaller average premium acceptable, and what makes you confident the team can serve more accounts? Record how much of the expansion you could reverse.'
-      },
-      pause: {
-        label: 'Pause expansion and investigate',
-        feedback: 'A pause limits further exposure and leaves time to investigate. Name who will check pricing and coverage fit for the smaller policies that left. What finding would make you comfortable resuming?'
-      },
-      continue: {
-        label: 'Continue under a documented exception',
-        feedback: 'Continuing leaves a confirmed breach on the record. Specify the scope and duration of the exception, who accepts the risk, and what would end it. The higher share of original premium on renewing policies leaves the count-based breach in place.'
-      },
-      stop: {
-        label: 'End the campaign',
-        feedback: 'Ending the campaign limits further exposure. Consider what the business gives up if a pricing change affected several channels, and what evidence would distinguish a broad problem from one confined to this campaign.'
-      }
+    const feedback = {
+      hold: 'Keeping the scheduled call in the three pilot offices buys time. Which signal would lead you to try it elsewhere: service effort, commission income, or early cancellations among the smaller policies?',
+      limited: 'A limited rollout lets you test the call in a few more offices. Choose comparable quotes, document which offices will use the rule, and agree what finding would make you extend or withdraw it.',
+      expand: 'Company-wide rollout commits rep time before first renewal is known. What evidence connects the issuance gain to the calls? Consider how you would reverse the rule if it added work or encouraged poor-fit sales.',
+      pause: 'Suspending the scheduled call gives you time to examine who left and why. Reps can still respond to agents who need help. What finding would justify resuming the rule?',
+      modify: 'Calling only on unresolved coverage questions is a different method. Define which quotes qualify and compare outcomes and rep time with usual follow-up on similar quotes. Keep the original breach visible as you test the change.',
+      continue: 'Continuing the current call rule after the breach requires a reason, an owner, and an end date for the exception. What evidence would make you withdraw it sooner?',
+      stop: 'Retiring the scheduled call restores discretion over follow-up timing. What other way could reps help agents find suitable coverage, and how would you tell whether it serves the growth Objective?'
     };
     const discussionOnly = 'No group response recorded.';
     let records = [];
@@ -456,6 +453,7 @@
         if (date && (action || rationale || !facilitated) && !date.reportValidity()) return;
         records[index] = {
           action: action ? action.value : '',
+          label: action ? action.closest('label').textContent.trim() : '',
           rationale,
           date: date && (action || rationale) ? date.value : ''
         };
@@ -475,28 +473,31 @@
     function renderRecord() {
       const [first, second] = records;
       const text = (id, value) => { byId(id).textContent = value || discussionOnly; };
-      text('record-first-action', choices[first.action]?.label);
+      text('record-method', byId('case-method').textContent);
+      text('record-objective', byId('case-objective').textContent);
+      text('record-first-action', first.label);
       text('record-first-reason', first.rationale);
       text('record-revisit', formatDate(first.date));
-      text('record-second-action', choices[second.action]?.label);
+      text('record-second-action', second.label);
       text('record-second-reason', second.rationale);
-      text('first-feedback', choices[first.action]?.feedback ||
-        'Compare the exposure created by holding scope, running a limited trial, or expanding fully. In March the director has to justify any expansion while the Guardrail is pending.');
-      text('second-feedback', choices[second.action]?.feedback ||
-        'A breach calls for an explicit decision about scope. Compare a pause, a time-limited exception, and ending the campaign. What evidence and whose approval would each require?');
+      text('first-feedback', feedback[first.action] ||
+        'Which offices would you authorize to use the scheduled call? Compare how much each option would cost in rep time and what you could learn before first renewal.');
+      text('second-feedback', feedback[second.action] ||
+        'Compare suspending the scheduled call, testing a narrower rule, continuing under an exception, and retiring it. What evidence would justify each choice?');
     }
 
     function exportRecord() {
       const quoted = id => byId(id).textContent.split('\n').map(line => '> ' + line).join('\n');
       const lines = [
-        '# Would you expand the campaign?', '', 'Decision record · Fictional training case', '',
+        '# Would you expand the quote follow-up pilot?', '', 'Decision record · Fictional training case', '',
+        'Objective', quoted('record-objective'), '', 'Method under review', quoted('record-method'), '',
         '## March 31, 2027 — Quarter close', '',
         byId('record-issuance-evidence').textContent, '',
-        'Decision', quoted('record-first-action'), '', 'Reason and conditions', quoted('record-first-reason'), '',
+        'March decision on the call rule', quoted('record-first-action'), '', 'Reason and conditions', quoted('record-first-reason'), '',
         'Revisit date', quoted('record-revisit'), '',
         '## April 30, 2028 — First renewal', '',
         byId('record-renewal-evidence').textContent, '',
-        'Decision', quoted('record-second-action'), '', 'Reason and investigation', quoted('record-second-reason'), ''
+        'April decision on the call rule', quoted('record-second-action'), '', 'Reason and investigation', quoted('record-second-reason'), ''
       ];
       const file = new Blob([lines.join('\n')], {type: 'text/markdown;charset=utf-8'});
       const url = URL.createObjectURL(file);
