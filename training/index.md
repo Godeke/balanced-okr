@@ -2,7 +2,7 @@
 
 ## Would you expand the campaign?
 
-Sales has hit its acquisition target and wants to expand. You’re the commercial director. Read the quarter-close report, decide what you would authorize, and record your reasoning. Then open the first-renewal report and revisit your decision. Both reports use fictional policy data.
+Sales has hit its acquisition target and wants to expand. You’re the commercial director. Use the first report to weigh policy count, average premium, and total written premium after inflation. Record what you would authorize. A second report follows both policies and premium through first renewal. All policy figures and the inflation rate are fictional.
 
 [Start the exercise](campaign-review.html) · <a href="campaign-review.html" download="campaign-review.html">Download the HTML for offline use</a>
 

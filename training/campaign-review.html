@@ -143,6 +143,9 @@
       .report, .decision-panel, .record, .commentary-card { padding: 1rem; }
       th, td { padding: .5rem .3rem; }
     }
+    @media screen and (max-width: 22rem) {
+      .report th, .report td { font-size: .8rem; padding-inline: .15rem; }
+    }
     @page { margin: 15mm; }
     @media print {
       html, body { background: white; color: black; font-size: 10.5pt; }
@@ -206,28 +209,30 @@
             <h2>Quarter-end issuance report</h2>
             <p class="report-date">As of <time datetime="2027-03-31">March 31, 2027</time></p>
           </header>
-          <p class="report-summary">Sales issued <strong>1,150 qualified new annual policies</strong> against a target of 1,150. Volume rose by 150 policies, or 15%, from the previous quarter.</p>
+          <p class="report-summary">Sales issued <strong>1,150 qualified new annual policies</strong> against a target of 1,150. The policy count rose 15%. How much did the total written premium change?</p>
           <div class="table-wrap">
             <table>
-              <caption>New policies by issue month</caption>
+              <caption>New annual policies and premium written at issue</caption>
               <thead>
-                <tr><th scope="col">Quarter</th><th scope="col">First month</th><th scope="col">Second month</th><th scope="col">Third month</th><th scope="col">Total</th></tr>
+                <tr><th scope="col">Measure</th><th scope="col">Q4 2026</th><th scope="col">Q1 2027</th><th scope="col">Change</th></tr>
               </thead>
               <tbody>
-                <tr><th scope="row">Q4 2026</th><td>Oct · 325</td><td>Nov · 345</td><td>Dec · 330</td><td><strong>1,000</strong></td></tr>
-                <tr><th scope="row">Q1 2027</th><td>Jan · 372</td><td>Feb · 358</td><td>Mar · 420</td><td><strong>1,150</strong></td></tr>
+                <tr><th scope="row">Policies issued</th><td>1,000</td><td>1,150</td><td>+15.0%</td></tr>
+                <tr><th scope="row">Total written premium</th><td>$2,500,000</td><td>$2,530,000</td><td>+1.2%</td></tr>
+                <tr><th scope="row">Average premium per policy</th><td>$2,500</td><td>$2,200</td><td>−12.0%</td></tr>
+                <tr><th scope="row">Total premium in Q4 dollars</th><td>$2,500,000</td><td>$2,480,392</td><td>−0.8%</td></tr>
               </tbody>
             </table>
           </div>
-          <p class="report-note"><strong>Counting rule.</strong> The policy register counts each qualified new annual policy once at issue. The same qualification rules apply in both quarters.</p>
-          <p><strong>First renewal is pending.</strong> The earliest policy in the new cohort reaches its first anniversary in January 2028. The agreed Guardrail calls for review if first renewal falls more than two percentage points below the comparable Q1 2026 cohort.</p>
-          <p class="report-note"><strong>Decision authority.</strong> The commercial director owns the renewal review due April 30, 2028. Only the director may authorize earlier expansion and must record the reason and a date to revisit it.</p>
+          <p class="report-note"><strong>Inflation assumption.</strong> In this fictional case, the average general price index rose from 100 in Q4 to 102 in Q1, or 2.0% from one quarter to the next. Dividing $2,530,000 by 1.02 gives its purchasing power in Q4 dollars. Insurance rate changes would require separate pricing data.</p>
+          <p class="report-note"><strong>Issue register.</strong> Oct 325 · Nov 345 · Dec 330. Jan 372 · Feb 358 · Mar 420. Each qualified new annual policy counts once under the same rules. Premium is the annual amount written at issue. Coverage limits, agency revenue, and profit each require other records.</p>
+          <p><strong>First renewal is pending.</strong> The agreed Guardrail calls for review if the share of policies renewing falls more than two percentage points below the comparable Q1 2026 cohort. The commercial director owns the review due April 30, 2028. Only the director may authorize earlier expansion, recording the reason and a date to revisit it.</p>
           <div class="report-tools"><button class="secondary" type="button" data-action="print-report">Print this report</button></div>
         </article>
         <aside class="decision-panel" aria-labelledby="decision-one-title">
           <p class="meta">March 31, 2027</p>
           <h2 id="decision-one-title" tabindex="-1">What will you authorize?</h2>
-          <p>The team wants a larger budget for next quarter. State what it can do while first renewal is pending.</p>
+          <p>Sales wants a larger budget. How much growth came from writing more policies? What happened to the average premium and to the total after inflation? Use that evidence to decide how far the team can go while first renewal is pending.</p>
           <form id="first-decision">
             <fieldset>
               <legend>Campaign scope</legend>
@@ -236,7 +241,7 @@
               <label class="choice"><input type="radio" name="initial-action" value="expand"><span>Authorize the full expansion</span></label>
             </fieldset>
             <label class="field" for="first-reason">Why, and under what conditions?
-              <textarea id="first-reason" name="reason" rows="3" maxlength="3000" required placeholder="Record what the issuance figures tell you and what is still uncertain."></textarea>
+              <textarea id="first-reason" name="reason" rows="3" maxlength="3000" required placeholder="Which figures support your choice? What would you want to know about the cost of serving these policies?"></textarea>
             </label>
             <label class="field" for="revisit">When will you revisit this decision?
               <input id="revisit" name="revisit" type="date" min="2027-04-01" max="2028-04-30" value="2028-04-30" required>
@@ -256,35 +261,37 @@
             <h2>First-renewal comparison</h2>
             <p class="report-date">As of <time datetime="2028-04-30">April 30, 2028</time></p>
           </header>
-          <p class="report-summary">The first-renewal window has closed for both cohorts. Of the 1,150 policies issued in Q1 2027, <strong>943 renewed for a second term</strong>.</p>
+          <p class="report-summary">Both cohorts have reached first renewal. Of the 1,150 policies issued in Q1 2027, <strong>943 renewed for a second term</strong>. What share of the original premium did those policies represent?</p>
           <div class="table-wrap">
             <table>
-              <caption>First renewal by acquisition cohort</caption>
+              <caption>First renewal by policy count and original written premium</caption>
               <thead>
-                <tr><th scope="col">Policy register</th><th scope="col">Q1 2026<br>comparison</th><th scope="col">Q1 2027<br>campaign</th></tr>
+                <tr><th scope="col">Acquisition cohort</th><th scope="col">Q1 2026<br>comparison</th><th scope="col">Q1 2027<br>campaign</th></tr>
               </thead>
               <tbody>
-                <tr><th scope="row">Originally issued</th><td>1,000</td><td>1,150</td></tr>
-                <tr><th scope="row">Renewed</th><td>860</td><td>943</td></tr>
-                <tr><th scope="row">Did not renew</th><td>140</td><td>207</td></tr>
-                <tr><th scope="row">First-renewal rate</th><td><strong>86%</strong></td><td><strong>82%</strong></td></tr>
+                <tr><th scope="row">Policies originally issued</th><td>1,000</td><td>1,150</td></tr>
+                <tr><th scope="row">Renewed / did not renew</th><td>860 / 140</td><td>943 / 207</td></tr>
+                <tr><th scope="row">Share of policies renewed</th><td><strong>86%</strong></td><td><strong>82%</strong></td></tr>
+                <tr><th scope="row">Original premium, all policies</th><td>$2,400,000</td><td>$2,530,000</td></tr>
+                <tr><th scope="row">Original premium, policies that renewed</th><td>$2,040,000</td><td>$2,277,000</td></tr>
+                <tr><th scope="row">Share of original premium on renewed policies</th><td><strong>85%</strong></td><td><strong>90%</strong></td></tr>
               </tbody>
             </table>
           </div>
           <figure class="renewal-plot">
-            <figcaption>First renewal · dashed line marks the 84% boundary</figcaption>
+            <figcaption>Renewal by policy count · dashed line marks the 84% boundary</figcaption>
             <div class="bar-row"><span>Q1 2026</span><span class="track"><i style="width:86%"></i></span><strong>86%</strong></div>
             <div class="bar-row"><span>Q1 2027</span><span class="track"><i style="width:82%"></i></span><strong>82%</strong></div>
           </figure>
-          <p class="report-note"><strong>Counting rule.</strong> Each rate divides renewals by all originally issued qualified new annual policies in that cohort. Early cancellations stay in the denominator.</p>
-          <p><strong>Guardrail finding.</strong> The comparison rate of 86% puts the agreed lower boundary at 84%. The campaign cohort finished at 82%, a four-percentage-point decline. The Guardrail was breached.</p>
-          <p class="report-note"><strong>Available evidence.</strong> These totals come from the reconciled issue and renewal registers. Reasons for nonrenewal, changes in renewal pricing, and the suitability of coverage have yet to be reviewed.</p>
+          <p class="report-note"><strong>Reading the two shares.</strong> Both use the full original cohort, including early cancellations. For the premium share, divide the original premium on policies that renewed by the original premium on all policies issued in that cohort. Using issue prices for both amounts keeps repricing at renewal out of the comparison.</p>
+          <p><strong>Guardrail finding.</strong> The policy renewal rate fell four percentage points, from 86% to 82%, crossing the 84% lower boundary. The original premium share rose five points. The Guardrail applies to the policy count.</p>
+          <p class="report-note"><strong>Open questions.</strong> What did customers face at renewal? Review offers, product mix, and coverage fit to investigate the change. The issue register shows the original premium. The actual premium charged at renewal comes from a later transaction.</p>
           <div class="report-tools"><button class="secondary" type="button" data-action="print-report">Print this report</button></div>
         </article>
         <aside class="decision-panel" aria-labelledby="decision-two-title">
           <p class="meta">April 30, 2028</p>
           <h2 id="decision-two-title" tabindex="-1">What changes today?</h2>
-          <p>The first report compared sales with the previous quarter. For first renewal, compare the two Q1 cohorts at the same age. What does that evidence change about the campaign?</p>
+          <p>Compare the two Q1 cohorts at first renewal. What difference does it make that the Guardrail counts policies, while the premium comparison gives larger policies more weight?</p>
           <form id="second-decision">
             <fieldset>
               <legend>Response to the renewal finding</legend>
@@ -293,7 +300,7 @@
               <label class="choice"><input type="radio" name="renewal-action" value="stop"><span>End the campaign</span></label>
             </fieldset>
             <label class="field" for="second-reason">Why, and what evidence would you ask for?
-              <textarea id="second-reason" rows="4" maxlength="3000" required placeholder="Name an explanation, what you would check, and when you would reconsider."></textarea>
+              <textarea id="second-reason" rows="4" maxlength="3000" required placeholder="What would you investigate about the customers who left? Explain how it could change your decision."></textarea>
             </label>
             <p class="field-note" id="locked-second" hidden>This entry was recorded before the debrief was opened.</p>
             <div class="actions"><button class="primary" id="reveal-debrief" type="submit">Record decision and open debrief</button></div>
@@ -309,7 +316,7 @@
           <h2 tabindex="-1" id="record-title">Your decision record</h2>
           <div class="record-entry">
             <h3>March 31, 2027 · Quarter close</h3>
-            <p class="result">Issuance KR achieved. First-renewal Guardrail pending.</p>
+            <p class="result" id="record-issuance-evidence">Issuance KR achieved at 1,150 policies, up 15%. Total written premium rose 1.2% to $2.53 million. Average premium fell from $2,500 to $2,200. With 2% inflation over the quarter, total premium fell about 0.8% in Q4 dollars. First renewal was pending.</p>
             <dl class="record-list">
               <dt>Decision</dt><dd id="record-first-action"></dd>
               <dt>Reason and conditions</dt><dd id="record-first-reason"></dd>
@@ -318,7 +325,7 @@
           </div>
           <div class="record-entry">
             <h3>April 30, 2028 · First renewal</h3>
-            <p class="result">First renewal fell four percentage points. Guardrail breached.</p>
+            <p class="result" id="record-renewal-evidence">943 of 1,150 policies renewed (82%), compared with 860 of 1,000 (86%). The four-point decline breached the Guardrail. Renewing policies accounted for 90% of the campaign cohort’s original premium, compared with 85% in the earlier cohort.</p>
             <dl class="record-list">
               <dt>Decision</dt><dd id="record-second-action"></dd>
               <dt>Reason and investigation</dt><dd id="record-second-reason"></dd>
@@ -333,9 +340,12 @@
           <p id="first-feedback"></p>
           <h3>At first renewal</h3>
           <p id="second-feedback"></p>
+          <h3>What the premium adds</h3>
+          <p>The team wrote 15% more policies at an average premium 12% lower. Together those changes lifted written premium to $2.53 million. Keeping up with inflation would have taken $2.55 million. A smaller policy can be worth pursuing if the coverage fits the customer and commission income covers the service effort. The reports give you the premium. You would need commission and cost data to judge contribution.</p>
+          <p>The 207 campaign policies that did not renew accounted for $253,000 of original premium, about $1,222 per policy. The 943 that renewed averaged about $2,415 at issue. Ask what happened to the smaller policies, including whether product or channel mix explains the gap. The director still owes a decision on the policy-count Guardrail.</p>
           <h3>Compare with the book</h3>
           <p>In Chapter 7, the director holds the campaign at its current scope in March. When first renewal comes in at 82% against 86%, the director pauses expansion. Underwriting checks product mix and prices, sales samples files for coverage fit, and both return on May 31. The four-point gap warrants action. Those checks help establish why it happened.</p>
-          <p><strong>Discuss together.</strong> Which part of your March decision would you still defend with the information available then? Which new fact would change what you authorize next?</p>
+          <p><strong>Discuss together.</strong> Would the recommendation at either review change if your goal were to serve more small accounts? What evidence would tell you whether those customers and the business both benefited?</p>
           <p class="online-links">Online reading · <a href="https://godeke.github.io/balanced-okr/book/07-operating-balanced-okrs/#a-completed-review">Completed review</a> · <a href="https://godeke.github.io/balanced-okr/book/worksheet/">Team worksheet</a></p>
         </aside>
       </div>
@@ -364,23 +374,23 @@
     const choices = {
       hold: {
         label: 'Keep the current scope',
-        feedback: 'Holding scope keeps the decision reversible. Consider what earlier signal, such as a cluster of cancellations, would bring the review forward. The team can still recognize the issuance result today.'
+        feedback: 'Holding scope buys time. Which evidence would bring your decision forward: service time per policy, commission income, or early cancellations among the smaller policies?'
       },
       limited: {
         label: 'Authorize a limited expansion',
-        feedback: 'A limited expansion can give the team experience while first renewal is pending. Does your record cap the exposure, name what would stop the trial, and set a date to return? Sales volume alone leaves the renewal question open.'
+        feedback: 'A limited expansion can give the team experience while first renewal is pending. Does your record cap the exposure and identify which accounts to include? Compare the service effort and commission on those policies at the next review.'
       },
       expand: {
         label: 'Authorize the full expansion',
-        feedback: 'Full expansion exposes more customers before renewal quality is known. What evidence justified taking that risk, and how much of the expansion could you reverse? The authority and rationale for that choice belong in the record.'
+        feedback: 'Full expansion exposes more customers before renewal quality is known. What makes the smaller average premium acceptable, and what makes you confident the team can serve more accounts? Record how much of the expansion you could reverse.'
       },
       pause: {
         label: 'Pause expansion and investigate',
-        feedback: 'A pause limits further exposure and leaves time to investigate. Name the people who will check pricing, product mix, and coverage fit, and the evidence you would need to resume.'
+        feedback: 'A pause limits further exposure and leaves time to investigate. Name who will check pricing and coverage fit for the smaller policies that left. What finding would make you comfortable resuming?'
       },
       continue: {
         label: 'Continue under a documented exception',
-        feedback: 'Continuing leaves a confirmed breach on the record. Specify the scope and duration of the exception, who accepts the risk, and what would end it. Exceeding the issuance target cannot offset the decline.'
+        feedback: 'Continuing leaves a confirmed breach on the record. Specify the scope and duration of the exception, who accepts the risk, and what would end it. The higher share of original premium on renewing policies leaves the count-based breach in place.'
       },
       stop: {
         label: 'End the campaign',
@@ -481,11 +491,11 @@
       const lines = [
         '# Would you expand the campaign?', '', 'Decision record · Fictional training case', '',
         '## March 31, 2027 — Quarter close', '',
-        'Issued 1,150 qualified new annual policies against a target of 1,150. First renewal pending.', '',
+        byId('record-issuance-evidence').textContent, '',
         'Decision', quoted('record-first-action'), '', 'Reason and conditions', quoted('record-first-reason'), '',
         'Revisit date', quoted('record-revisit'), '',
         '## April 30, 2028 — First renewal', '',
-        '943 of 1,150 policies renewed (82%) against 860 of 1,000 (86%). The four-point decline crossed the two-point tolerance.', '',
+        byId('record-renewal-evidence').textContent, '',
         'Decision', quoted('record-second-action'), '', 'Reason and investigation', quoted('record-second-reason'), ''
       ];
       const file = new Blob([lines.join('\n')], {type: 'text/markdown;charset=utf-8'});
