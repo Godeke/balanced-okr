@@ -11,6 +11,7 @@ theme:
 nav:
   - Home: index.md
   - Pamphlet: pamphlet.md
+  - Training: training/index.md
   - Book:
       - Introduction and Contents: book/index.md
       - "1. One-sided Success": book/01-one-sided-success.md
