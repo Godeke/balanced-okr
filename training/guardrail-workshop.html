@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Three interactive field exercises for reviewing an Objective, its Key Result, and its Guardrails together.">
+  <title>Guardrail workshop · Balanced OKRs</title>
+  <style>
+:root {
+  color-scheme: light;
+  --ink: #203a40;
+  --muted: #496168;
+  --teal: #145c54;
+  --teal-dark: #103f39;
+  --amber: #754808;
+  --line: #c5d0c6;
+  --paper: #f6f4ed;
+  --white: #fffefa;
+  --wash: #eaf1e9;
+  --serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.55 var(--sans); }
+h1, h2, h3, p, dl, dd, ul, fieldset { margin: 0; }
+h1, h2 { font-family: var(--serif); text-wrap: balance; line-height: 1.12; }
+h1 { font-size: clamp(2.4rem, 5vw, 4.15rem); letter-spacing: -.044em; }
+h2 { font-size: clamp(1.45rem, 2.75vw, 2rem); letter-spacing: -.025em; }
+h3 { font-size: 1rem; margin: 1.1rem 0 .35rem; }
+p + p { margin-top: .65rem; }
+a { color: var(--teal); text-underline-offset: .18em; }
+button, textarea, input { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: default; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, .table-wrap:focus-visible { outline: 3px solid #ac501b; outline-offset: 3px; }
+.shell { width: min(100% - 2.5rem, 73rem); margin-inline: auto; }
+.mast { background: var(--white); border-bottom: 1px solid var(--line); }
+.bar, .controls { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; }
+.bar { justify-content: space-between; min-height: 3.6rem; padding-block: .45rem; }
+.wordmark { display: inline-flex; align-items: center; gap: .65rem; font: 700 1.22rem/1.25 var(--serif); color: var(--ink); text-decoration: none; }
+.wordmark::before { content: ""; width: 1.3rem; height: 1.35rem; border-inline: .32rem solid var(--teal); transform: skew(-12deg); }
+.quiet, .secondary, .primary { background: var(--white); color: var(--teal-dark); border: 1px solid var(--line); border-radius: .25rem; padding: .48rem .76rem; font-size: .88rem; font-weight: 650; line-height: 1.4; text-decoration: none; }
+.quiet[aria-pressed="true"], .secondary:hover, .quiet:hover { background: var(--wash); border-color: var(--teal); }
+.hero { padding: clamp(1.6rem, 4.2vw, 3.35rem) 0 1.25rem; }
+.eyebrow { color: var(--teal); font-size: .74rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.hero h1 { margin: .3rem 0 .65rem; }
+.intro { color: var(--muted); font-size: 1.07rem; max-width: 72ch; }
+.agreement { border-left: .3rem solid var(--teal); padding: 1rem 1.35rem 1.2rem; background: var(--wash); }
+.agreement h2 { margin: 0 0 .7rem; font-size: 1.35rem; }
+.promise { font: 1.12rem/1.45 var(--serif); margin: -.2rem 0 .8rem; }
+.agreement dl { display: grid; grid-template-columns: .85fr 1fr 1.18fr; gap: .75rem 1.8rem; }
+.agreement dt, .record dt { font-size: .85rem; color: var(--teal-dark); font-weight: 730; margin-bottom: .2rem; }
+.agreement dd { font-size: .94rem; }
+#guardrails { padding: 0; list-style: none; }
+#guardrails li + li { margin-top: .45rem; }
+.stage-nav { display: flex; margin: 1.35rem 0 1rem; border-block: 1px solid var(--line); }
+.stage-nav button { flex: 1; padding: .73rem .5rem; color: var(--ink); border: 0; border-bottom: 3px solid transparent; background: transparent; font-weight: 600; line-height: 1.35; text-align: left; }
+.stage-nav button + button { border-left: 1px solid var(--line); }
+.stage-nav button[aria-current="step"] { background: var(--white); color: var(--teal); border-bottom-color: var(--teal); }
+.stage-nav button:disabled { color: #54686d; }
+.stage-nav button:not(:disabled):hover { background: var(--wash); }
+.mode-note { color: var(--muted); margin: .5rem 0 1rem; }
+.spread { display: grid; grid-template-columns: minmax(0, 1.36fr) minmax(0, 1fr); gap: 1.15rem; align-items: start; }
+.sheet, .panel { padding: clamp(1.1rem, 2.4vw, 1.8rem); border: 1px solid var(--line); border-radius: .32rem; min-width: 0; }
+.sheet { background: var(--white); border-top: .24rem solid var(--teal); }
+.panel { background: #eeefe5; }
+.sheet > h2, .panel > h2 { margin: .25rem 0 .85rem; }
+.primary { display: inline-block; margin-top: 1rem; background: var(--teal); border-color: var(--teal); color: white; padding: .65rem .95rem; }
+.primary:hover { background: var(--teal-dark); }
+label, legend { font-weight: 600; }
+textarea { display: block; width: 100%; min-height: 6rem; padding: .65rem; margin-top: .55rem; resize: vertical; color: var(--ink); background: var(--white); border: 1px solid #899e94; border-radius: .2rem; }
+fieldset { padding: 0; border: 0; min-width: 0; margin-bottom: 1rem; }
+.choice { display: flex; align-items: baseline; gap: .5rem; margin-top: .4rem; padding: .55rem .65rem; background: var(--white); border: 1px solid var(--line); border-radius: .2rem; font-size: .94rem; font-weight: 500; cursor: pointer; }
+.choice:has(input:checked) { border-color: var(--teal); box-shadow: inset .18rem 0 var(--teal); }
+.choice input { accent-color: var(--teal); flex: none; margin: 0; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .9rem; line-height: 1.42; font-variant-numeric: tabular-nums; }
+caption { text-align: left; color: var(--muted); margin-bottom: .45rem; }
+th, td { text-align: left; vertical-align: top; padding: .58rem .4rem; border-bottom: 1px solid var(--line); }
+thead th { background: var(--wash); font-size: .8rem; }
+th[scope="row"] { font-weight: 620; }
+.measure-status { display: block; font-size: .81rem; color: var(--teal-dark); font-weight: 700; margin-top: .2rem; }
+.breached { color: var(--amber); }
+.report-only { grid-template-columns: 1fr; }
+.report-only .sheet { border-top-width: 1px; }
+#debrief { margin-top: 1.1rem; }
+.synthesis { font: 1.22rem/1.48 var(--serif); }
+.record dt { margin-top: .75rem; }
+.record dd { white-space: pre-wrap; overflow-wrap: anywhere; }
+.response { margin: 1rem 0; padding-left: .8rem; border-left: 3px solid var(--teal); }
+.record > a { display: inline-block; margin-top: .75rem; }
+.case-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.case-link { display: block; padding: 1.15rem 1.25rem 1.45rem; background: var(--white); border: 1px solid var(--line); border-top: .24rem solid var(--teal); text-decoration: none; color: var(--ink); }
+.case-link:hover { border-color: var(--teal); }
+.case-link h2 { margin-top: .35rem; font-size: 1.48rem; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .17em; }
+.case-link p:last-child { margin-top: .55rem; color: var(--muted); }
+.footer { margin-top: 2rem; border-top: 1px solid var(--line); padding: 1rem 0 1.75rem; color: var(--muted); font-size: .87rem; }
+@media(max-width: 52rem) {
+  .spread, .agreement dl, .case-list { grid-template-columns: 1fr; }
+}
+@media(max-width: 36rem) {
+  .shell { width: calc(100% - 1.25rem); }
+  .hero { padding-top: 1.35rem; }
+  .stage-nav button { font-size: .82rem; padding-inline: .35rem; }
+  table { font-size: .8rem; }
+  th, td { padding: .45rem .22rem; overflow-wrap: anywhere; }
+}
+@page { margin: 15mm; }
+@media print {
+  body { color: black; background: white; font-size: 10pt; }
+  .shell { width: 100%; }
+  .mast, .controls, .stage-nav, .mode-note, .footer, button, .record > a { display: none !important; }
+  .spread, .case-list { display: block; }
+  .hero { padding: 0 0 .45rem; }
+  h1 { font-size: 20pt; } h2 { font-size: 14pt; } h3 { font-size: 11pt; }
+  .agreement, .sheet, .panel { padding: .4rem 0; border: 0; background: white; }
+  .agreement dl { display: block; }
+  .agreement dt, .agreement dd { display: inline; }
+  .agreement dt { margin-right: .4rem; }
+  #guardrails { display: inline; } #guardrails li { display: inline; } #guardrails li + li { margin-left: .4rem; }
+  .intro, .synthesis, .agreement dd { font-size: 10pt; }
+  #debrief { margin-top: .35rem; }
+  .table-wrap { overflow: visible; }
+  table { font-size: 9pt; } th, td { padding: .25rem; }
+  .sheet > h2, .panel > h2 { margin: .2rem 0 .4rem; }
+  h1, h2, h3, caption, dt { break-after: avoid; }
+  tr { break-inside: avoid; } [hidden] { display: none !important; }
+}
+  </style>
+</head>
+<body>
+  <header class="mast"><div class="shell bar">
+    <a class="wordmark" href="#cases">Balanced OKRs</a>
+    <div class="controls" id="case-tools" hidden>
+      <a class="quiet" href="#cases">Choose a case</a>
+      <button type="button" class="quiet" data-action="facilitate" aria-pressed="false">Facilitator view</button>
+    </div>
+  </div></header>
+  <main class="shell">
+    <noscript><p>Open this file in a browser with JavaScript enabled to step through the cases.</p></noscript>
+    <section id="chooser">
+      <header class="hero">
+        <p class="eyebrow">Balanced OKRs · Practice cases</p>
+        <h1 tabindex="-1">When the Key Result improves</h1>
+        <p class="intro">Choose a team. Read what it wants to achieve, predict who might bear the cost of its method, then open the report and decide what the team should do.</p>
+      </header>
+      <div class="case-list" id="case-list"></div>
+    </section>
+    <div id="exercise" hidden>
+      <header class="hero">
+        <p class="eyebrow" id="role"></p>
+        <h1 id="title" tabindex="-1"></h1>
+        <p class="intro" id="decision"></p>
+      </header>
+      <section class="agreement" aria-labelledby="agreement-title">
+        <h2 id="agreement-title">The agreement before the pilot</h2>
+        <p class="promise" id="promise"></p>
+        <dl>
+          <div><dt>Objective</dt><dd id="objective"></dd></div>
+          <div><dt>Key Result</dt><dd id="kr"></dd></div>
+          <div><dt id="guardrail-label">Guardrails</dt><dd><ul id="guardrails"></ul></dd></div>
+        </dl>
+      </section>
+      <nav class="stage-nav" aria-label="Case stages">
+        <button type="button" data-stage="0" aria-controls="brief">1. Predict the tradeoff</button>
+        <button type="button" data-stage="1" aria-controls="evidence">2. Read the result</button>
+        <button type="button" data-stage="2" aria-controls="debrief">3. Debrief</button>
+      </nav>
+      <p class="mode-note" id="facilitator-note" hidden><strong>Facilitator view.</strong> Invite the room to make a prediction before the reveal. You can advance after discussion or record a group answer.</p>
+      <section id="brief" class="spread" aria-label="Predict the tradeoff">
+        <article class="sheet">
+          <p class="eyebrow" id="checkpoint"></p>
+          <h2 tabindex="-1">Why the team tried this</h2>
+          <p id="method"></p><p id="motivation"></p>
+          <h3>What the team knows so far</h3>
+          <p id="early"></p>
+        </article>
+        <form id="prediction-form" class="panel">
+          <h2>Who might bear the cost?</h2>
+          <label for="prediction">Suppose the team does this well and hits its KR. In one sentence, connect the Objective to that result and name whose experience could still get worse. Which Guardrail would tell you?</label>
+          <textarea id="prediction" rows="4" required maxlength="3000"></textarea>
+          <button class="primary" id="reveal-evidence" type="submit">Record prediction and reveal results</button>
+        </form>
+      </section>
+      <section id="evidence" hidden aria-label="Review the outcome">
+        <div class="spread" id="report-spread">
+          <article class="sheet">
+            <p class="eyebrow" id="report-date"></p>
+            <h2 id="report-heading" tabindex="-1">Pilot results</h2>
+            <div class="table-wrap"><table>
+              <caption>Mock operations report</caption>
+              <thead><tr><th scope="col">Measure</th><th scope="col">Baseline</th><th scope="col">Pilot</th><th scope="col">Agreed criterion</th></tr></thead>
+              <tbody id="measures"></tbody>
+            </table></div>
+            <h3>What the team found</h3><p id="finding"></p>
+          </article>
+          <form id="review-form" class="panel">
+            <h2>What should change?</h2>
+            <fieldset><legend>Choose what to do with the method.</legend><div id="options"></div></fieldset>
+            <label for="judgment">Give one assessment. What does the KR establish, which boundary matters for the Objective, and what action follows?</label>
+            <textarea id="judgment" rows="4" required maxlength="3000"></textarea>
+            <button class="primary" id="review-choice" type="submit">Record decision and open debrief</button>
+          </form>
+        </div>
+      </section>
+      <section id="debrief" class="spread" hidden aria-label="Debrief and decision record">
+        <article class="sheet">
+          <p class="eyebrow">Debrief</p>
+          <h2 id="debrief-heading" tabindex="-1">One worked decision</h2>
+          <p id="synthesis" class="synthesis"></p>
+          <h3>What to check next</h3><p id="followup"></p>
+          <h3>Take it back to your team</h3><p id="discussion"></p>
+        </article>
+        <aside class="panel record">
+          <h2>Your decision record</h2>
+          <dl id="record"></dl>
+          <p id="feedback" class="response"></p>
+          <div class="controls">
+            <button type="button" class="secondary" data-action="download">Save Markdown</button>
+            <button type="button" class="secondary" data-action="print">Print record</button>
+          </div>
+          <a href="#cases">Choose another case</a>
+        </aside>
+      </section>
+    </div>
+  </main>
+  <footer class="footer shell">Fictional training cases. Responses stay in this tab. <a href="https://godeke.github.io/balanced-okr/training/">Full training menu online</a></footer>
+  <script type="application/json" id="case-data">
+[
+  {
+    "id": "quote-queue",
+    "title": "Which quotes should go first?",
+    "role": "Underwriting supervisor",
+    "decision": "Should underwriters keep taking ready-to-price requests first?",
+    "promise": "Routine applicants should hear back sooner while complex applicants can still get a timely, accurate quote.",
+    "objective": "Help agents give customers timely, dependable coverage options, including customers with complex risks.",
+    "kr": "For complete requests received by the commercial quote desk in April 2027, raise the share quoted within two business days from 50% in March to at least 75%.",
+    "guardrails": [
+      "Review the queue rule if more than 15% of April’s complex requests wait over five business days for a quote. The desk classifies complexity at intake.",
+      "Review the rule if more than 5% of quotes for April requests need an underwriting correction within seven days of issue."
+    ],
+    "method": "Each morning the desk takes ready-to-price requests first, then uses the remaining time for cases requiring specialist review.",
+    "motivation": "An agent with a complete, straightforward file can often give a customer an answer that same afternoon. The team wants to free those customers from a queue they can move through quickly.",
+    "checkpoint": "April 9, 2027",
+    "early": "Agents are already receiving routine quotes sooner. Several complex cases are still waiting for their first review. The April cohort has yet to complete either observation window.",
+    "reportDate": "May 14, 2027",
+    "measures": [
+      {"name":"Requests quoted within two business days","baseline":"March: 100 of 200 (50%)","observed":"April: 160 of 200 (80%)","criterion":"At least 75%","status":"KR met"},
+      {"name":"Complex requests waiting over five business days","baseline":"March: 4 of 40 (10%)","observed":"April: 12 of 40 (30%)","criterion":"At most 15%","status":"Guardrail breached"},
+      {"name":"Quotes requiring an underwriting correction","baseline":"March: 8 of 200 (4%)","observed":"April: 6 of 200 (3%)","criterion":"At most 5%","status":"Within boundary"}
+    ],
+    "finding": "All 200 April requests have quotes and seven days of correction history. On nine of the twelve late complex files, the specialist was available earlier in the week but the team took ready-to-price work first. Correction rates stayed within the agreed boundary.",
+    "options": [
+      {"label":"Reserve specialist time each morning and keep the fast queue.","feedback":"This keeps routine customers’ time savings and gives complex work a scheduled start. Check that the reserved time is actually used before urgent work takes it back."},
+      {"label":"Promote aging requests ahead of ready-to-price work.","feedback":"An age cutoff gives staff a visible reason to change the order. Set it early enough for a specialist to finish a complex quote before the five-day limit."},
+      {"label":"Return to oldest-request-first while the desk tests alternatives.","feedback":"This immediately changes who waits. Track whether routine quotes slow again and whether the oldest complex files actually reach a specialist sooner."}
+    ],
+    "synthesis": "Quoting 80% within two days helped agents with routine files, but 30% of complex requests waited over five days. To give both groups dependable turnaround, the supervisor will reserve a morning specialist slot before the fast queue opens.",
+    "followup": "On June 18 the underwriting supervisor will review both turnaround measures and correction rates for May requests, along with days the reserved slot was displaced.",
+    "discussion": "If every underwriter chooses the next file in the same reasonable way, which customer keeps getting pushed back?"
+  },
+  {
+    "id": "release-window",
+    "title": "Should each change ship when it’s ready?",
+    "role": "Quoting service owner",
+    "decision": "Which changes should the teams continue releasing independently?",
+    "promise": "Agents should receive quoting fixes sooner and still be able to rely on the service when they bind coverage.",
+    "objective": "Get quoting improvements to agents sooner while keeping the service dependable when they need to bind coverage.",
+    "kr": "For changes deployed to the quoting service in Q1 2027, reduce the median elapsed time from approval to production from ten calendar days in Q4 to five days or less.",
+    "guardrails": [
+      "Review the release method if more than 5% of Q1 production changes require a rollback or hotfix for an incident within seven days of deployment. Count each triggering change once."
+    ],
+    "method": "Application and configuration teams used to wait for a shared release window. In the pilot each team deploys a small approved change as soon as its own tests and release checks pass.",
+    "motivation": "Agents have been waiting for quoting fixes that are ready days before the shared release. Smaller releases could get those fixes to the people who need them sooner.",
+    "checkpoint": "February 12, 2027",
+    "early": "The first independently released fixes reached agents within a week. Low-volume carrier integrations run on a separate schedule, and several recent releases still have days left in their incident observation window.",
+    "reportDate": "April 8, 2027",
+    "measures": [
+      {"name":"Median approval-to-production time","baseline":"Q4: 10 calendar days","observed":"Q1: 5 calendar days","criterion":"At most 5 days","status":"KR met"},
+      {"name":"Changes requiring incident rollback or hotfix","baseline":"Q4: 2 of 50 (4%)","observed":"Q1: 4 of 50 (8%)","criterion":"At most 5%","status":"Guardrail breached"}
+    ],
+    "finding": "Every Q1 release has seven days of incident history. For three of the four triggering changes, the incident timeline shows a carrier job ran after a new application version shipped and before its companion configuration arrived. Both components had passed their individual checks.",
+    "options": [
+      {"label":"Coordinate the rollout of changes with a declared dependency.","feedback":"This preserves the short route for independent fixes. Ask who can identify a dependency and what evidence shows that the two parts work together."},
+      {"label":"Test independent release with a joint compatibility check.","feedback":"A check that exercises both deployment orders could expose the timing gap. Decide which carrier jobs the check must cover before widening the pilot."},
+      {"label":"Restore the shared window while the teams examine the four incidents.","feedback":"This limits immediate exposure to mismatched releases. Give the investigation an owner and a revisit date so agents know when quicker delivery may resume."}
+    ],
+    "synthesis": "The teams reached five-day delivery, but 8% of changes needed an incident rollback or hotfix. To get agents improvements they can safely use, the service owner will coordinate dependent releases and keep the short route for independent fixes.",
+    "followup": "On May 10 the service owner will compare April lead times and seven-day incident rates for coordinated and independent changes, and review any failures that crossed a component boundary.",
+    "discussion": "Which part of the faster release practice is worth keeping, and which handoff needs an owner?"
+  },
+  {
+    "id": "service-desk",
+    "title": "Who should take the next call?",
+    "role": "Policy service manager",
+    "decision": "Should the next available qualified specialist take every policy-change call?",
+    "promise": "Getting an agent to a specialist sooner should help the agent finish the policy change without chasing the desk for an answer.",
+    "objective": "Help agents get policy changes settled promptly without having to chase an answer.",
+    "kr": "For policy-change requests opened by the service desk in June 2027, raise the share receiving qualified help within four business hours from 65% in May to at least 85%. A specialist must be able to act on the request.",
+    "guardrails": [
+      "Review routing if agents on more than 12% of June requests have to contact the desk again about the same unresolved issue within five business days of opening. Count each request once."
+    ],
+    "method": "The desk pools calls across its qualified specialists. The first available person takes the call, including a return call that might previously have gone to the agent’s named specialist.",
+    "motivation": "Agents working against a coverage deadline can speak to someone who can act while their usual specialist is busy. Any specialist can see the account notes.",
+    "checkpoint": "June 11, 2027",
+    "early": "The morning callback list is shorter. On changes that need a carrier response, staff have started leaving notes for whichever specialist takes the next call. The first-contact figures cannot yet show how often agents must chase those cases.",
+    "reportDate": "July 12, 2027",
+    "measures": [
+      {"name":"Requests receiving qualified help within four business hours","baseline":"May: 130 of 200 (65%)","observed":"June: 180 of 200 (90%)","criterion":"At least 85%","status":"KR met"},
+      {"name":"Requests requiring repeat contact about the same unresolved issue","baseline":"May: 18 of 200 (9%)","observed":"June: 32 of 200 (16%)","criterion":"At most 12%","status":"Guardrail breached"}
+    ],
+    "finding": "Every June request has five business days of follow-up. In 20 of the 32 requests with a repeat contact, the first specialist had asked a carrier for information and the case notes named nobody to call the agent back. Changes in carrier response times could also affect those figures.",
+    "options": [
+      {"label":"Keep pooled pickup and assign a callback owner on the first call.","feedback":"An agent can still reach the first available specialist. Give the owner time to check the carrier response and a way to hand off the promise when absent."},
+      {"label":"Limit pooled routing to policy changes the desk can settle in one contact.","feedback":"This matches routing to the kind of work. Check how accurately staff can identify a one-contact change before they speak with the agent."},
+      {"label":"Return calls to named account specialists for the next cycle.","feedback":"A familiar owner can carry the case through to completion. Check wait times for agents whose regular specialist is already on a call."}
+    ],
+    "synthesis": "Qualified help reached 90% of requests within four hours, but agents had to chase 16% of requests. To help agents finish changes promptly, the manager will keep pooled pickup and give the first specialist responsibility for the callback.",
+    "followup": "On August 10 the service manager will review July response times and five-day repeat contacts, comparing cases that needed a carrier reply with cases the desk could settle directly.",
+    "discussion": "Who owns the promise to call back when each person has done a good job answering the call in front of them?"
+  }
+]
+  </script>
+  <script>
+'use strict';
+
+const cases = JSON.parse(document.getElementById('case-data').textContent);
+const byId = id => document.getElementById(id);
+const stageButtons = Array.from(document.querySelectorAll('[data-stage]'));
+const facilitatorButton = document.querySelector('[data-action="facilitate"]');
+const sessions = new Map();
+let current;
+let session;
+
+function element(tag, text = '', className = '') {
+  const node = document.createElement(tag);
+  node.textContent = text;
+  if (className) node.className = className;
+  return node;
+}
+
+function buildChooser() {
+  for (const item of cases) {
+    const link = element('a', '', 'case-link');
+    link.href = '#' + item.id;
+    link.dataset.case = item.id;
+    link.append(element('p', item.role, 'eyebrow'), element('h2', item.title), element('p', item.decision));
+    byId('case-list').append(link);
+  }
+}
+
+function openRoute(focus) {
+  current = cases.find(item => item.id === location.hash.slice(1));
+  byId('chooser').hidden = Boolean(current);
+  byId('exercise').hidden = !current;
+  byId('case-tools').hidden = !current;
+  if (!current) {
+    session = null;
+    document.title = 'Guardrail workshop · Balanced OKRs';
+    if (focus) byId('chooser').querySelector('h1').focus();
+    return;
+  }
+  if (!sessions.has(current.id)) {
+    sessions.set(current.id, {stage: 0, unlocked: 0, group: false, prediction: '', action: null, judgment: ''});
+  }
+  session = sessions.get(current.id);
+  document.title = current.title + ' · Balanced OKRs';
+  for (const field of ['role', 'title', 'decision', 'promise', 'objective', 'kr', 'method', 'motivation', 'checkpoint', 'early']) {
+    byId(field).textContent = current[field];
+  }
+  byId('guardrail-label').textContent = current.guardrails.length === 1 ? 'Guardrail' : 'Guardrails';
+  byId('guardrails').replaceChildren(...current.guardrails.map(rule => element('li', rule)));
+  byId('options').replaceChildren(...current.options.map((option, index) => {
+    const label = element('label', '', 'choice');
+    const input = element('input');
+    input.type = 'radio';
+    input.name = 'action';
+    input.value = String(index);
+    input.checked = session.action === index;
+    input.required = true;
+    label.append(input, element('span', option.label));
+    return label;
+  }));
+  for (const id of ['prediction', 'judgment']) {
+    byId(id).value = session[id];
+    byId(id).setCustomValidity('');
+  }
+  render();
+  if (focus) byId('title').focus();
+}
+
+function renderReport(showVerdict) {
+  byId('report-date').textContent = current.reportDate;
+  byId('finding').textContent = current.finding;
+  byId('measures').replaceChildren(...current.measures.map(measure => {
+    const row = element('tr');
+    const name = element('th', measure.name);
+    name.scope = 'row';
+    const criterion = element('td', measure.criterion);
+    if (showVerdict) {
+      const status = element('span', measure.status, 'measure-status');
+      if (measure.status === 'Guardrail breached') status.classList.add('breached');
+      criterion.append(status);
+    }
+    row.append(name, element('td', measure.baseline), element('td', measure.observed), criterion);
+    return row;
+  }));
+}
+
+function recordedEntries() {
+  const option = current.options[session.action];
+  return [
+    ['Before the reveal', session.prediction],
+    ['Method decision', option?.label],
+    ['Assessment and reason', session.judgment]
+  ].map(([label, value]) => [label, value?.trim() || 'No written group response.']);
+}
+
+function showDebrief() {
+  for (const id of ['synthesis', 'followup', 'discussion']) byId(id).textContent = current[id];
+  byId('record').replaceChildren(...recordedEntries().flatMap(([key, value]) => [element('dt', key), element('dd', value)]));
+  const option = current.options[session.action];
+  byId('feedback').textContent = option?.feedback || 'Compare the group’s proposed action with the worked example. What evidence would bring you back to that decision?';
+}
+
+function render() {
+  const stage = session.stage;
+  byId('brief').hidden = stage !== 0;
+  byId('evidence').hidden = stage === 0;
+  byId('review-form').hidden = stage !== 1;
+  byId('report-spread').classList.toggle('report-only', stage === 2);
+  byId('debrief').hidden = stage !== 2;
+  for (const [i, button] of stageButtons.entries()) {
+    button.disabled = i > session.unlocked;
+    if (i === stage) button.setAttribute('aria-current', 'step');
+    else button.removeAttribute('aria-current');
+  }
+  byId('prediction').readOnly = session.unlocked >= 1;
+  byId('judgment').readOnly = session.unlocked >= 2;
+  for (const input of byId('options').querySelectorAll('input')) input.disabled = session.unlocked >= 2;
+  facilitatorButton.setAttribute('aria-pressed', String(session.group));
+  facilitatorButton.hidden = session.unlocked > 0;
+  byId('facilitator-note').hidden = !session.group || stage === 2;
+  byId('prediction-form').noValidate = session.group || session.unlocked >= 1;
+  byId('review-form').noValidate = session.group || session.unlocked >= 2;
+  byId('reveal-evidence').textContent = session.group || session.unlocked >= 1 ? 'Reveal results' : 'Record prediction and reveal results';
+  byId('review-choice').textContent = session.group || session.unlocked >= 2 ? 'Open debrief' : 'Record decision and open debrief';
+  if (stage >= 1) renderReport(stage === 2);
+  if (stage === 2) showDebrief();
+}
+
+function goToStage(stage) {
+  session.stage = stage;
+  render();
+  const heading = [byId('brief').querySelector('h2'), byId('report-heading'), byId('debrief-heading')][stage];
+  heading.focus();
+}
+
+function advance(event, stage, textField) {
+  event.preventDefault();
+  if (session.unlocked < stage) {
+    const field = byId(textField);
+    if (!session.group && !field.value.trim()) {
+      field.setCustomValidity('Enter your reasoning before opening the next stage.');
+      field.reportValidity();
+      return;
+    }
+    session[textField] = field.value.trim();
+    session.unlocked = stage;
+  }
+  goToStage(stage);
+}
+
+for (const id of ['prediction', 'judgment']) {
+  byId(id).addEventListener('input', event => {
+    event.target.setCustomValidity('');
+    session[id] = event.target.value;
+  });
+}
+byId('options').addEventListener('change', event => {
+  session.action = Number(event.target.value);
+});
+byId('prediction-form').addEventListener('submit', event => advance(event, 1, 'prediction'));
+byId('review-form').addEventListener('submit', event => advance(event, 2, 'judgment'));
+for (const [stage, button] of stageButtons.entries()) button.addEventListener('click', () => goToStage(stage));
+facilitatorButton.addEventListener('click', () => {
+  session.group = !session.group;
+  byId('prediction').setCustomValidity('');
+  render();
+});
+
+function downloadRecord() {
+  const lines = ['# ' + current.title, '', 'Fictional training case · ' + current.role, '',
+    '## The agreement', '', current.promise, '', '**Objective.** ' + current.objective, '', '**Key Result.** ' + current.kr, '',
+    ...current.guardrails.map(rule => '- **Guardrail.** ' + rule), '',
+    '## Method and evidence', '', current.method, '', current.reportDate, ''];
+  for (const measure of current.measures) {
+    lines.push('- ' + measure.name + ' — ' + measure.baseline + ' → ' + measure.observed + '. ' + measure.criterion + '. ' + measure.status + '.');
+  }
+  lines.push('', current.finding, '', '## Your decision record', '');
+  for (const [key, value] of recordedEntries()) {
+    lines.push('**' + key + '**', '', ...value.split('\n').map(line => '> ' + line), '');
+  }
+  lines.push('## Worked example', '', current.synthesis, '', current.followup, '', current.discussion, '');
+  const blob = new Blob([lines.join('\n')], {type: 'text/markdown;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const link = element('a');
+  link.href = url;
+  link.download = current.id + '-decision.md';
+  document.body.append(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+document.querySelector('[data-action="download"]').addEventListener('click', downloadRecord);
+document.querySelector('[data-action="print"]').addEventListener('click', () => window.print());
+window.addEventListener('hashchange', () => openRoute(true));
+buildChooser();
+openRoute(false);
+  </script>
+</body>
+</html>

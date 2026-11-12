@@ -1,11 +1,20 @@
 # Training
 
-## Would you expand the quote follow-up pilot?
+Read each Balanced OKR as one promise. **What should improve for whom, what Key Result would show progress, and what must the team protect along the way?** In these fictional cases, people make reasonable choices to reach a target. You decide what to do when the consequences show up elsewhere.
 
-You’re the commercial director. Your Objective is to grow new insurance business that customers choose to renew. Three sales offices tried a scheduled call. When a new-business quote was still open two business days after it was sent, a rep called the referring agent. Elsewhere, reps chose when to follow up. Sales wants to use the rule more widely.
+## Choose an exercise
 
-Decide where to use the call rule at quarter close, then decide whether to keep, change, or retire it when first renewals arrive. The reports track policy count, written premium, inflation, and retention. All figures are fictional.
+| Exercise | Decision |
+| --- | --- |
+| [Which quotes should go first?](guardrail-workshop.html#quote-queue) | **Underwriting.** Clearing straightforward quotes first could get more customers an answer sooner. Decide how the team should allocate time across the whole queue. |
+| [Should each change ship when it’s ready?](guardrail-workshop.html#release-window) | **Software delivery.** Smaller, independent releases can get improvements to customers sooner. Decide how teams should coordinate changes to the quoting service. |
+| [Who should take the next call?](guardrail-workshop.html#service-desk) | **Service desk.** Routing an agent to the next available specialist can shorten the wait. Decide who owns the callback when a policy change needs more work. |
+| [Would you expand the quote follow-up pilot?](campaign-review.html) | **Sales.** Decide where to use a scheduled agent call at quarter close, then revisit the decision at first renewal. This eight-minute case includes dated reports on policy counts, written premium, inflation, and retention. |
 
-[Start the exercise](campaign-review.html) · <a href="campaign-review.html" download="campaign-review.html">Download the HTML for offline use</a>
+Start with the quote queue for a short introduction. On your own, write a decision before opening the debrief. In a group, pause before revealing the results. Ask what a conscientious teammate would do to reach the Key Result, and who else might feel the effects. Once the evidence is in, agree on a change to the method and who will check whether it helped.
 
-Allow about eight minutes on your own. For a group session, project the exercise and pause before revealing the second report. Ask which follow-up practice each person would authorize with the evidence available that day. At the end, you can print or save your decision record.
+## Take the exercises offline
+
+<a href="guardrail-workshop.html" download="guardrail-workshop.html">Download the three short cases</a> · <a href="campaign-review.html" download="campaign-review.html">Download the quote follow-up pilot</a>
+
+Each download opens in a browser without an internet connection. To use the same approach with an Objective from your team, [copy the Balanced OKR worksheet](../book/worksheet.md).
