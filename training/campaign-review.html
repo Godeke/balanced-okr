@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A two-round Balanced OKR exercise about an insurance campaign, with dated fictional reports and a decision record.">
+  <title>Would you expand the campaign? · Balanced OKRs</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f3eb;
+      --sheet: #fffef9;
+      --ink: #172e36;
+      --muted: #4e6368;
+      --line: #c6d0c9;
+      --teal: #0d6058;
+      --teal-dark: #0a4843;
+      --wash: #e9f1eb;
+      --amber: #88531b;
+      --serif: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      --sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.55 var(--sans); }
+    [hidden] { display: none !important; }
+    a { color: var(--teal); text-underline-offset: .2em; }
+    a:hover { color: var(--teal-dark); text-decoration-thickness: .13em; }
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible {
+      outline: 3px solid #a94c13; outline-offset: 3px;
+    }
+    button, input, textarea, select { font: inherit; }
+    button { cursor: pointer; }
+    button:disabled { cursor: default; }
+    h1, h2, h3, p, figure, dl, fieldset { margin: 0; }
+    h1, h2, h3 { text-wrap: balance; }
+    h1, h2 { font-family: var(--serif); font-weight: 600; line-height: 1.07; }
+    .container { width: min(100% - 2.5rem, 76rem); margin-inline: auto; }
+
+    .masthead { border-bottom: 1px solid var(--line); background: var(--sheet); }
+    .masthead-inner { min-height: 3.8rem; display: flex; align-items: center; justify-content: space-between; gap: .75rem 1.5rem; flex-wrap: wrap; padding-block: .5rem; }
+    .brand { display: inline-flex; align-items: center; gap: .65rem; color: var(--ink); font: 700 1.2rem/1.25 var(--serif); text-decoration: none; }
+    .brand::before { content: ""; width: 1.35rem; height: 1.4rem; flex: none; border-left: .34rem solid var(--teal); border-right: .34rem solid var(--teal); transform: skew(-12deg); }
+    .utilities, .actions, .report-tools { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem .8rem; }
+    .utility, .secondary, .text-link, .report-tools button, .utilities button, .utilities a {
+      color: var(--teal-dark); background: transparent; border: 1px solid var(--line); border-radius: .25rem; padding: .46rem .74rem;
+      font: 600 .84rem/1.4 var(--sans); text-decoration: none;
+    }
+    .utility:hover, .secondary:hover, .report-tools button:hover, .utilities button:hover, .utilities a:hover { background: var(--wash); }
+
+    .intro { padding-block: clamp(2rem, 4.8vw, 4.15rem) 1.75rem; }
+    .meta, .report-kicker { font-size: .72rem; font-weight: 750; line-height: 1.4; letter-spacing: .095em; text-transform: uppercase; color: var(--teal); }
+    .intro h1 { margin: .45rem 0 .6rem; max-width: 100%; font-size: clamp(2.45rem, 5.3vw, 4.8rem); letter-spacing: -.044em; }
+    .lede { max-width: 75ch; color: var(--muted); font-size: clamp(1rem, 1.55vw, 1.14rem); }
+    .steps { display: flex; border-block: 1px solid var(--line); }
+    .step { flex: 1 1 0; min-width: 0; display: flex; align-items: center; gap: .65rem; padding: .8rem .75rem; color: var(--ink); border: 0; border-bottom: 3px solid transparent; background: transparent; font-weight: 640; text-align: left; line-height: 1.35; }
+    .step + .step { border-left: 1px solid var(--line); }
+    .step .number { border: 1px solid currentColor; border-radius: 50%; width: 1.6rem; height: 1.6rem; display: inline-grid; place-items: center; flex: none; font: 700 .77rem/1 var(--sans); }
+    .step[aria-current="step"] { color: var(--teal-dark); background: var(--wash); border-bottom-color: var(--teal); }
+    .step[aria-current="step"] .number { color: white; background: var(--teal); border-color: var(--teal); }
+    .step:disabled { color: var(--muted); }
+    .step:not(:disabled):hover { background: #e4ebe5; }
+    .mode-note { color: var(--muted); font-size: .91rem; margin-block: .85rem; max-width: 88ch; }
+    .stage { margin-block: 1.4rem 2.25rem; }
+    .case-grid, .debrief-grid { display: grid; grid-template-columns: minmax(0, 1.48fr) minmax(18rem, 1fr); gap: clamp(1rem, 2.2vw, 2rem); align-items: start; }
+    .report, .decision-panel, .record, .commentary-card {
+      min-width: 0; padding: clamp(1.25rem, 2.8vw, 2.25rem); border-radius: .3rem;
+    }
+    .report, .record { background: var(--sheet); border: 1px solid var(--line); border-top: .3rem solid var(--teal); box-shadow: 0 .36rem 1.25rem #24322c0c; }
+    .report:has(time[datetime="2028-04-30"]) { border-top-color: var(--amber); }
+    .report:has(time[datetime="2028-04-30"]) .report-kicker { color: var(--amber); }
+    .report-header { padding-bottom: 1rem; border-bottom: 1px solid var(--line); margin-bottom: 1.1rem; }
+    .report h2, .record h2 { margin: .4rem 0; font-size: clamp(1.8rem, 3.15vw, 2.65rem); letter-spacing: -.033em; }
+    .report-date { color: var(--muted); font-size: .88rem; font-variant-numeric: tabular-nums; }
+    .report-summary { font-size: 1.08rem; }
+    .report > p + p, .report-tools { margin-top: 1.05rem; }
+    .table-wrap { margin-block: 1.25rem 1rem; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; line-height: 1.4; }
+    caption { padding-bottom: .55rem; font-weight: 700; color: var(--ink); text-align: left; }
+    th, td { padding: .68rem .55rem; vertical-align: middle; border-block-end: 1px solid var(--line); }
+    thead th { background: #e9eeea; color: #344e53; font-size: .78rem; font-weight: 700; }
+    th:first-child, td:first-child { text-align: left; }
+    th:not(:first-child), td:not(:first-child) { text-align: right; }
+    tbody th, tbody td { font-size: .92rem; }
+    tbody th { font-weight: 600; }
+    .report-note { color: var(--muted); font-size: .91rem; }
+    .report-note strong { color: var(--ink); }
+    .report-tools { padding-top: 1rem; border-top: 1px solid var(--line); }
+
+    .decision-panel, .commentary-card { background: #ebefe7; border: 1px solid #bdcbbf; }
+    .decision-panel h2, .commentary-card h2, .debrief-grid > h2 { font-size: clamp(1.5rem, 2.25vw, 2.05rem); letter-spacing: -.025em; margin: 0 0 .7rem; }
+    .decision-panel > .meta, .commentary-card > .meta, .record > .meta { margin: 0 0 .4rem; }
+    .decision-panel > p, .commentary-card p, .record > p { margin-block: .65rem; }
+    .record-entry { margin-top: 1.1rem; }
+    .record-entry h3, .commentary-card h3 { margin: 1.15rem 0 .5rem; font-size: 1.05rem; }
+    .field-note { margin-top: .75rem; color: var(--muted); font-size: .85rem; }
+    .utility[aria-pressed="true"] { border-color: var(--teal); background: var(--wash); }
+    fieldset { min-width: 0; border: 0; padding: 0; }
+    fieldset, .field { margin-top: 1.1rem; }
+    legend, .field { color: var(--ink); font-size: .95rem; font-weight: 670; }
+    legend { padding: 0 0 .35rem; }
+    .choice { display: flex; align-items: flex-start; gap: .62rem; margin-block: .42rem; padding: .64rem .75rem; background: var(--sheet); color: var(--ink); border: 1px solid var(--line); border-radius: .28rem; font-size: .94rem; cursor: pointer; }
+    .choice input { accent-color: var(--teal); width: 1rem; height: 1rem; margin: .2rem 0 0; flex: none; }
+    .choice:has(input:checked) { border-color: var(--teal); box-shadow: inset .18rem 0 var(--teal); background: #f4faf5; }
+    .choice:hover { border-color: #65897d; }
+    .field, .field > span { display: block; }
+    textarea, input[type="text"], input[type="date"], select {
+      display: block; width: 100%; min-width: 0; padding: .56rem .68rem; margin-top: .35rem; background: var(--sheet); color: var(--ink);
+      border: 1px solid #879d94; border-radius: .24rem; font: 400 1rem/1.45 var(--sans);
+    }
+    textarea { min-height: 4.6rem; resize: vertical; }
+    .actions { margin-top: 1.25rem; }
+    button.primary { background: var(--teal); color: white; border: 1px solid var(--teal); border-radius: .26rem; padding: .65rem .95rem; font-weight: 690; line-height: 1.45; }
+    button.primary:hover { background: var(--teal-dark); }
+    button.primary:disabled { background: #63756f; }
+    .record-list { margin-block: .8rem 1.35rem; }
+    .record-list dt { border-top: 1px solid var(--line); padding-top: .65rem; margin-top: .65rem; font-size: .83rem; font-weight: 720; color: var(--muted); }
+    .record-list dd { margin: .2rem 0 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .result { padding: .7rem .85rem; border-left: .23rem solid var(--teal); background: var(--wash); }
+    .text-link { display: inline-block; }
+    .footer { margin-block: 2rem 0; border-top: 1px solid var(--line); padding-block: 1.2rem 2rem; color: var(--muted); font-size: .87rem; }
+    dialog { max-width: min(32rem, 90vw); padding: 1.6rem; border: 1px solid var(--line); border-top: .3rem solid var(--teal); border-radius: .35rem; color: var(--ink); background: var(--sheet); }
+    dialog h2 { margin-bottom: .7rem; }
+    dialog::backdrop { background: #152a30a8; }
+    .renewal-plot { margin-block: 1rem; }
+    .bar-row { display: grid; grid-template-columns: minmax(4rem, auto) minmax(4rem, 1fr) 3rem; gap: .5rem; align-items: center; font-size: .85rem; }
+    .bar-row + .bar-row { margin-top: .5rem; }
+    .track { display: block; position: relative; height: .7rem; background: #e4e8e1; }
+    .track i { display: block; height: 100%; background: var(--teal); }
+    .bar-row:last-child .track i { background: #986b34; }
+    .track::after { content: ""; position: absolute; left: 84%; top: -.15rem; bottom: -.15rem; border-left: 2px dashed var(--ink); }
+    @media (max-width: 54rem) {
+      .case-grid, .debrief-grid { grid-template-columns: minmax(0, 1fr); }
+    }
+    @media (max-width: 36rem) {
+      .container { width: calc(100% - 1.25rem); }
+      .masthead-inner { min-height: 3.2rem; }
+      .utilities { gap: .25rem; }
+      .utilities button, .utilities a { font-size: .78rem; padding: .4rem .45rem; }
+      .intro { padding-block: 1.7rem 1.2rem; }
+      .step { gap: .35rem; padding: .55rem .25rem; font-size: .78rem; }
+      .step .number { width: 1.25rem; height: 1.25rem; font-size: .68rem; }
+      .report, .decision-panel, .record, .commentary-card { padding: 1rem; }
+      th, td { padding: .5rem .3rem; }
+    }
+    @page { margin: 15mm; }
+    @media print {
+      html, body { background: white; color: black; font-size: 10.5pt; }
+      .container { width: 100%; margin: 0; }
+      .utilities, .steps, .mode-note, .report-tools, .actions, .skip-link, .footer, dialog, button { display: none !important; }
+      [hidden] { display: none !important; }
+      .masthead, .intro { margin: 0 0 .6rem; padding: 0; }
+      .masthead-inner { min-height: 0; padding: 0; }
+      .intro h1 { font-size: 22pt; }
+      .case-grid, .debrief-grid { display: block; }
+      .stage { margin: 0; }
+      .report, .record, .decision-panel, .commentary-card { padding: .5rem 0; color: black; background: white; border: 0; box-shadow: none; }
+      .table-wrap { overflow: visible; }
+      h1, h2, h3, caption { break-after: avoid; }
+      table, tr, .report-header, .record-list dt { break-inside: avoid; }
+      .report h2, .record h2 { font-size: 22pt; }
+      body[data-print] .intro, body[data-print] .masthead { display: none !important; }
+      body[data-print="report"] .case-grid > :not(article.report),
+      body[data-print="report"] .debrief-grid,
+      body[data-print="report"] .stage > :not(.case-grid),
+      body[data-print="record"] .case-grid,
+      body[data-print="record"] .debrief-grid > :not(.record),
+      body[data-print="record"] .stage > :not(.debrief-grid):not(h1):not(h2),
+      body[data-print="record"] .record button,
+      body[data-print="record"] .record .text-link { display: none !important; }
+    }
+    .renewal-plot figcaption { font-size: .83rem; color: var(--muted); margin-bottom: .65rem; }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="container masthead-inner">
+      <span class="brand">Balanced OKRs</span>
+      <div class="utilities">
+        <button class="utility" type="button" data-action="facilitate" aria-pressed="false">Facilitator view</button>
+        <button class="utility" type="button" data-action="restart" hidden>Start again</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <header class="intro">
+      <p class="meta">Decision exercise · About 8 minutes</p>
+      <h1>Would you expand the campaign?</h1>
+      <p class="lede">You’re the commercial director. Your goal is to grow new business that customers choose to renew. Sales hit its acquisition target and wants to expand. Decide what you’ll authorize with the evidence available on each date.</p>
+    </header>
+
+    <nav class="steps" aria-label="Exercise stages">
+      <button class="step" type="button" data-step="0" aria-controls="round-one" aria-current="step"><span class="number" aria-hidden="true">1</span> <span>Quarter close</span></button>
+      <button class="step" type="button" data-step="1" aria-controls="round-two" disabled><span class="number" aria-hidden="true">2</span> <span>First renewal</span></button>
+      <button class="step" type="button" data-step="2" aria-controls="debrief" disabled><span class="number" aria-hidden="true">3</span> <span>Debrief</span></button>
+    </nav>
+    <noscript><p>This exercise uses JavaScript to reveal each report and prepare your decision record. Open the HTML in a browser with JavaScript enabled to work through both rounds.</p></noscript>
+    <p class="mode-note" id="facilitator-note" hidden><strong>Facilitator view.</strong> Pause for discussion before revealing the next page. You can enter a group decision or leave the fields blank. The next report is available when you choose to reveal it.</p>
+
+    <section class="stage" id="round-one" aria-label="Quarter close">
+      <div class="case-grid">
+        <article class="report" id="issuance-report" aria-label="Mock quarter-end issuance report">
+          <header class="report-header">
+            <p class="report-kicker">Commercial operations · Mock report</p>
+            <h2>Quarter-end issuance report</h2>
+            <p class="report-date">As of <time datetime="2027-03-31">March 31, 2027</time></p>
+          </header>
+          <p class="report-summary">Sales issued <strong>1,150 qualified new annual policies</strong> against a target of 1,150. Volume rose by 150 policies, or 15%, from the previous quarter.</p>
+          <div class="table-wrap">
+            <table>
+              <caption>New policies by issue month</caption>
+              <thead>
+                <tr><th scope="col">Quarter</th><th scope="col">First month</th><th scope="col">Second month</th><th scope="col">Third month</th><th scope="col">Total</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Q4 2026</th><td>Oct · 325</td><td>Nov · 345</td><td>Dec · 330</td><td><strong>1,000</strong></td></tr>
+                <tr><th scope="row">Q1 2027</th><td>Jan · 372</td><td>Feb · 358</td><td>Mar · 420</td><td><strong>1,150</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="report-note"><strong>Counting rule.</strong> The policy register counts each qualified new annual policy once at issue. The same qualification rules apply in both quarters.</p>
+          <p><strong>First renewal is pending.</strong> The earliest policy in the new cohort reaches its first anniversary in January 2028. The agreed Guardrail calls for review if first renewal falls more than two percentage points below the comparable Q1 2026 cohort.</p>
+          <p class="report-note"><strong>Decision authority.</strong> The commercial director owns the renewal review due April 30, 2028. Only the director may authorize earlier expansion and must record the reason and a date to revisit it.</p>
+          <div class="report-tools"><button class="secondary" type="button" data-action="print-report">Print this report</button></div>
+        </article>
+        <aside class="decision-panel" aria-labelledby="decision-one-title">
+          <p class="meta">March 31, 2027</p>
+          <h2 id="decision-one-title" tabindex="-1">What will you authorize?</h2>
+          <p>The team wants a larger budget for next quarter. State what it can do while first renewal is pending.</p>
+          <form id="first-decision">
+            <fieldset>
+              <legend>Campaign scope</legend>
+              <label class="choice"><input type="radio" name="initial-action" value="hold" required><span>Keep the current scope</span></label>
+              <label class="choice"><input type="radio" name="initial-action" value="limited"><span>Authorize a limited expansion</span></label>
+              <label class="choice"><input type="radio" name="initial-action" value="expand"><span>Authorize the full expansion</span></label>
+            </fieldset>
+            <label class="field" for="first-reason">Why, and under what conditions?
+              <textarea id="first-reason" name="reason" rows="3" maxlength="3000" required placeholder="Record what the issuance figures tell you and what is still uncertain."></textarea>
+            </label>
+            <label class="field" for="revisit">When will you revisit this decision?
+              <input id="revisit" name="revisit" type="date" min="2027-04-01" max="2028-04-30" value="2028-04-30" required>
+            </label>
+            <p class="field-note" id="locked-first" hidden>This entry was recorded before the renewal report was opened.</p>
+            <div class="actions"><button class="primary" id="reveal-renewal" type="submit">Record decision and open renewal report</button></div>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section class="stage" id="round-two" aria-label="First renewal" hidden>
+      <div class="case-grid">
+        <article class="report" id="renewal-report" aria-label="Mock first-renewal report">
+          <header class="report-header">
+            <p class="report-kicker">Commercial operations · Mock report</p>
+            <h2>First-renewal comparison</h2>
+            <p class="report-date">As of <time datetime="2028-04-30">April 30, 2028</time></p>
+          </header>
+          <p class="report-summary">The first-renewal window has closed for both cohorts. Of the 1,150 policies issued in Q1 2027, <strong>943 renewed for a second term</strong>.</p>
+          <div class="table-wrap">
+            <table>
+              <caption>First renewal by acquisition cohort</caption>
+              <thead>
+                <tr><th scope="col">Policy register</th><th scope="col">Q1 2026<br>comparison</th><th scope="col">Q1 2027<br>campaign</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Originally issued</th><td>1,000</td><td>1,150</td></tr>
+                <tr><th scope="row">Renewed</th><td>860</td><td>943</td></tr>
+                <tr><th scope="row">Did not renew</th><td>140</td><td>207</td></tr>
+                <tr><th scope="row">First-renewal rate</th><td><strong>86%</strong></td><td><strong>82%</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <figure class="renewal-plot">
+            <figcaption>First renewal · dashed line marks the 84% boundary</figcaption>
+            <div class="bar-row"><span>Q1 2026</span><span class="track"><i style="width:86%"></i></span><strong>86%</strong></div>
+            <div class="bar-row"><span>Q1 2027</span><span class="track"><i style="width:82%"></i></span><strong>82%</strong></div>
+          </figure>
+          <p class="report-note"><strong>Counting rule.</strong> Each rate divides renewals by all originally issued qualified new annual policies in that cohort. Early cancellations stay in the denominator.</p>
+          <p><strong>Guardrail finding.</strong> The comparison rate of 86% puts the agreed lower boundary at 84%. The campaign cohort finished at 82%, a four-percentage-point decline. The Guardrail was breached.</p>
+          <p class="report-note"><strong>Available evidence.</strong> These totals come from the reconciled issue and renewal registers. Reasons for nonrenewal, changes in renewal pricing, and the suitability of coverage have yet to be reviewed.</p>
+          <div class="report-tools"><button class="secondary" type="button" data-action="print-report">Print this report</button></div>
+        </article>
+        <aside class="decision-panel" aria-labelledby="decision-two-title">
+          <p class="meta">April 30, 2028</p>
+          <h2 id="decision-two-title" tabindex="-1">What changes today?</h2>
+          <p>The first report compared sales with the previous quarter. For first renewal, compare the two Q1 cohorts at the same age. What does that evidence change about the campaign?</p>
+          <form id="second-decision">
+            <fieldset>
+              <legend>Response to the renewal finding</legend>
+              <label class="choice"><input type="radio" name="renewal-action" value="pause" required><span>Pause expansion and investigate</span></label>
+              <label class="choice"><input type="radio" name="renewal-action" value="continue"><span>Continue under a documented exception</span></label>
+              <label class="choice"><input type="radio" name="renewal-action" value="stop"><span>End the campaign</span></label>
+            </fieldset>
+            <label class="field" for="second-reason">Why, and what evidence would you ask for?
+              <textarea id="second-reason" rows="4" maxlength="3000" required placeholder="Name an explanation, what you would check, and when you would reconsider."></textarea>
+            </label>
+            <p class="field-note" id="locked-second" hidden>This entry was recorded before the debrief was opened.</p>
+            <div class="actions"><button class="primary" id="reveal-debrief" type="submit">Record decision and open debrief</button></div>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section class="stage" id="debrief" aria-label="Debrief" hidden>
+      <div class="debrief-grid">
+        <article class="record">
+          <p class="meta">Commercial director · Fictional case</p>
+          <h2 tabindex="-1" id="record-title">Your decision record</h2>
+          <div class="record-entry">
+            <h3>March 31, 2027 · Quarter close</h3>
+            <p class="result">Issuance KR achieved. First-renewal Guardrail pending.</p>
+            <dl class="record-list">
+              <dt>Decision</dt><dd id="record-first-action"></dd>
+              <dt>Reason and conditions</dt><dd id="record-first-reason"></dd>
+              <dt>Revisit date</dt><dd id="record-revisit"></dd>
+            </dl>
+          </div>
+          <div class="record-entry">
+            <h3>April 30, 2028 · First renewal</h3>
+            <p class="result">First renewal fell four percentage points. Guardrail breached.</p>
+            <dl class="record-list">
+              <dt>Decision</dt><dd id="record-second-action"></dd>
+              <dt>Reason and investigation</dt><dd id="record-second-reason"></dd>
+            </dl>
+          </div>
+          <div class="report-tools"><button class="primary" type="button" data-action="save">Save record as Markdown</button> <button class="secondary" type="button" data-action="print-record">Print record</button></div>
+        </article>
+        <aside class="commentary-card">
+          <p class="meta">Debrief</p>
+          <h2>What did the second report change?</h2>
+          <h3>At quarter close</h3>
+          <p id="first-feedback"></p>
+          <h3>At first renewal</h3>
+          <p id="second-feedback"></p>
+          <h3>Compare with the book</h3>
+          <p>In Chapter 7, the director holds the campaign at its current scope in March. When first renewal comes in at 82% against 86%, the director pauses expansion. Underwriting checks product mix and prices, sales samples files for coverage fit, and both return on May 31. The four-point gap warrants action. Those checks help establish why it happened.</p>
+          <p><strong>Discuss together.</strong> Which part of your March decision would you still defend with the information available then? Which new fact would change what you authorize next?</p>
+          <p class="online-links">Online reading · <a href="https://godeke.github.io/balanced-okr/book/07-operating-balanced-okrs/#a-completed-review">Completed review</a> · <a href="https://godeke.github.io/balanced-okr/book/worksheet/">Team worksheet</a></p>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <footer class="container footer">Responses stay in this tab. Save or print your record at the end. <a href="https://godeke.github.io/balanced-okr/training/">Training on GitHub Pages</a></footer>
+  <dialog id="restart-dialog" aria-labelledby="restart-title">
+    <h2 id="restart-title">Start a fresh exercise?</h2>
+    <p>This clears the decisions in this tab. You can save your record from the debrief first.</p>
+    <form method="dialog" class="actions">
+      <button class="secondary" value="cancel" autofocus>Keep this session</button>
+      <button class="primary" value="confirm">Start again</button>
+    </form>
+  </dialog>
+  <script>
+    'use strict';
+
+    const byId = id => document.getElementById(id);
+    const stages = [byId('round-one'), byId('round-two'), byId('debrief')];
+    const stepButtons = Array.from(document.querySelectorAll('[data-step]'));
+    const forms = [byId('first-decision'), byId('second-decision')];
+    const modeButton = document.querySelector('[data-action="facilitate"]');
+    const restartButton = document.querySelector('[data-action="restart"]');
+    const restartDialog = byId('restart-dialog');
+
+    const choices = {
+      hold: {
+        label: 'Keep the current scope',
+        feedback: 'Holding scope keeps the decision reversible. Consider what earlier signal, such as a cluster of cancellations, would bring the review forward. The team can still recognize the issuance result today.'
+      },
+      limited: {
+        label: 'Authorize a limited expansion',
+        feedback: 'A limited expansion can give the team experience while first renewal is pending. Does your record cap the exposure, name what would stop the trial, and set a date to return? Sales volume alone leaves the renewal question open.'
+      },
+      expand: {
+        label: 'Authorize the full expansion',
+        feedback: 'Full expansion exposes more customers before renewal quality is known. What evidence justified taking that risk, and how much of the expansion could you reverse? The authority and rationale for that choice belong in the record.'
+      },
+      pause: {
+        label: 'Pause expansion and investigate',
+        feedback: 'A pause limits further exposure and leaves time to investigate. Name the people who will check pricing, product mix, and coverage fit, and the evidence you would need to resume.'
+      },
+      continue: {
+        label: 'Continue under a documented exception',
+        feedback: 'Continuing leaves a confirmed breach on the record. Specify the scope and duration of the exception, who accepts the risk, and what would end it. Exceeding the issuance target cannot offset the decline.'
+      },
+      stop: {
+        label: 'End the campaign',
+        feedback: 'Ending the campaign limits further exposure. Consider what the business gives up if a pricing change affected several channels, and what evidence would distinguish a broad problem from one confined to this campaign.'
+      }
+    };
+    const discussionOnly = 'No group response recorded.';
+    let records = [];
+    let activeStage = 0;
+    let facilitated = false;
+
+    function updateMode() {
+      modeButton.setAttribute('aria-pressed', String(facilitated));
+      modeButton.hidden = records.length > 0;
+      byId('facilitator-note').hidden = !facilitated || activeStage === 2;
+      for (const form of forms) form.noValidate = facilitated;
+      byId('reveal-renewal').textContent = records[0] || facilitated
+        ? 'Reveal renewal report' : 'Record decision and open renewal report';
+      byId('reveal-debrief').textContent = records[1] || facilitated
+        ? 'Reveal debrief' : 'Record decision and open debrief';
+    }
+
+    function showStage(index, focus = true) {
+      if (index > records.length) return;
+      activeStage = index;
+      delete document.body.dataset.print;
+      for (const [step, section] of stages.entries()) {
+        section.hidden = step !== index;
+        const button = stepButtons[step];
+        button.disabled = step > records.length;
+        if (step === index) button.setAttribute('aria-current', 'step');
+        else button.removeAttribute('aria-current');
+      }
+      if (records.length) restartButton.hidden = false;
+      updateMode();
+      if (focus) {
+        const title = stages[index].querySelector('h2');
+        title.tabIndex = -1;
+        title.focus({preventScroll: true});
+        document.querySelector('.steps').scrollIntoView({block: 'start'});
+      }
+    }
+
+    function setEntryLocked(index, locked) {
+      for (const field of forms[index].querySelectorAll('input, textarea')) field.disabled = locked;
+      byId(index === 0 ? 'locked-first' : 'locked-second').hidden = !locked;
+    }
+
+    function submitDecision(event, index) {
+      event.preventDefault();
+      if (!records[index]) {
+        const form = forms[index];
+        const reason = form.querySelector('textarea');
+        const action = form.querySelector('input[type="radio"]:checked');
+        const rationale = reason.value.trim();
+        if (!facilitated && !rationale) {
+          reason.setCustomValidity('Please enter your reasoning before opening the next stage.');
+          reason.reportValidity();
+          return;
+        }
+        // Even in a group session, validate a date supplied for a written decision.
+        const date = index === 0 ? byId('revisit') : null;
+        if (date && (action || rationale || !facilitated) && !date.reportValidity()) return;
+        records[index] = {
+          action: action ? action.value : '',
+          rationale,
+          date: date && (action || rationale) ? date.value : ''
+        };
+        setEntryLocked(index, true);
+      }
+      if (index === 1) renderRecord();
+      showStage(index + 1);
+    }
+
+    function formatDate(date) {
+      if (!date) return '';
+      const [year, month, day] = date.split('-').map(Number);
+      return new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'long', day: 'numeric'})
+        .format(new Date(year, month - 1, day));
+    }
+
+    function renderRecord() {
+      const [first, second] = records;
+      const text = (id, value) => { byId(id).textContent = value || discussionOnly; };
+      text('record-first-action', choices[first.action]?.label);
+      text('record-first-reason', first.rationale);
+      text('record-revisit', formatDate(first.date));
+      text('record-second-action', choices[second.action]?.label);
+      text('record-second-reason', second.rationale);
+      text('first-feedback', choices[first.action]?.feedback ||
+        'Compare the exposure created by holding scope, running a limited trial, or expanding fully. In March the director has to justify any expansion while the Guardrail is pending.');
+      text('second-feedback', choices[second.action]?.feedback ||
+        'A breach calls for an explicit decision about scope. Compare a pause, a time-limited exception, and ending the campaign. What evidence and whose approval would each require?');
+    }
+
+    function exportRecord() {
+      const quoted = id => byId(id).textContent.split('\n').map(line => '> ' + line).join('\n');
+      const lines = [
+        '# Would you expand the campaign?', '', 'Decision record · Fictional training case', '',
+        '## March 31, 2027 — Quarter close', '',
+        'Issued 1,150 qualified new annual policies against a target of 1,150. First renewal pending.', '',
+        'Decision', quoted('record-first-action'), '', 'Reason and conditions', quoted('record-first-reason'), '',
+        'Revisit date', quoted('record-revisit'), '',
+        '## April 30, 2028 — First renewal', '',
+        '943 of 1,150 policies renewed (82%) against 860 of 1,000 (86%). The four-point decline crossed the two-point tolerance.', '',
+        'Decision', quoted('record-second-action'), '', 'Reason and investigation', quoted('record-second-reason'), ''
+      ];
+      const file = new Blob([lines.join('\n')], {type: 'text/markdown;charset=utf-8'});
+      const url = URL.createObjectURL(file);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'campaign-decision-record.md';
+      document.body.append(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
+    function printView(view) {
+      document.body.dataset.print = view;
+      window.print();
+    }
+
+    for (const [index, form] of forms.entries()) {
+      form.addEventListener('submit', event => submitDecision(event, index));
+      form.addEventListener('input', () => {
+        form.querySelector('textarea').setCustomValidity('');
+        restartButton.hidden = false;
+      });
+    }
+    for (const [index, button] of stepButtons.entries()) {
+      button.addEventListener('click', () => showStage(index));
+    }
+    modeButton.addEventListener('click', () => {
+      facilitated = !facilitated;
+      for (const form of forms) form.querySelector('textarea').setCustomValidity('');
+      updateMode();
+    });
+    for (const button of document.querySelectorAll('[data-action="print-report"]')) {
+      button.addEventListener('click', () => printView('report'));
+    }
+    document.querySelector('[data-action="print-record"]').addEventListener('click', () => printView('record'));
+    window.addEventListener('afterprint', () => { delete document.body.dataset.print; });
+    document.querySelector('[data-action="save"]').addEventListener('click', exportRecord);
+    restartButton.addEventListener('click', () => {
+      restartDialog.returnValue = '';
+      restartDialog.showModal();
+    });
+    restartDialog.addEventListener('close', () => {
+      if (restartDialog.returnValue !== 'confirm') return;
+      for (const [index, form] of forms.entries()) {
+        setEntryLocked(index, false);
+        form.reset();
+        form.querySelector('textarea').setCustomValidity('');
+      }
+      records = [];
+      for (const output of document.querySelectorAll('#debrief dd, #first-feedback, #second-feedback')) output.textContent = '';
+      facilitated = false;
+      restartButton.hidden = true;
+      showStage(0);
+    });
+
+    showStage(0, false);
+  </script>
+</body>
+</html>

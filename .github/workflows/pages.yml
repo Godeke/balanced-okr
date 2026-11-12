@@ -29,10 +29,11 @@ jobs:
         run: python -m pip install 'mkdocs==1.6.1'
       - name: Prepare Markdown source
         run: |
-          mkdir -p site-content/book
+          mkdir -p site-content/book site-content/training
           cp book/*.md site-content/book/
           mv site-content/book/README.md site-content/book/index.md
           cp pamphlet/README.md site-content/pamphlet.md
+          cp training/index.md training/campaign-review.html site-content/training/
           cat > site-content/index.md <<'EOF'
           # Balanced OKRs
 
@@ -41,6 +42,8 @@ jobs:
           Sales hit its acquisition target. Should the campaign expand before those customers renew? Balanced OKRs pairs measurable Key Results with Guardrails that tell teams when to review a decision.
 
           Start with the [short pamphlet](pamphlet.md), follow the worked example in the [book](book/index.md), or [copy the worksheet](book/worksheet.md) for your next team review. Sources are collected in the [bibliography](book/bibliography.md).
+
+          Practice the expansion decision with two dated reports in the [training exercise](training/index.md).
 
           The framework is a proposed adaptation, not an established certification or empirically validated standard.
 
